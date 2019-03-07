@@ -1,0 +1,35 @@
+header {
+  font-family: "Quicksand", sans-serif;
+  background: transparent;
+  margin-top: 10px;
+  position: fixed;
+  font-size: 20px;
+  left: 0;
+  right: 0;
+  border: none;
+  padding: 0px 50px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  li {
+    margin: 0 10px;
+    color: black;
+    display: flex;
+  }
+  li:hover {
+    color: #98beab;
+    cursor: pointer;
+  }
+
+  button {
+    display: none;
+  }
+}
