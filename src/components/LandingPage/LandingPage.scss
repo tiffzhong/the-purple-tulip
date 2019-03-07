@@ -1,15 +1,18 @@
 .landing {
+  font-family: "Quicksand", sans-serif;
   background-image: url("../Images/tulipbg.jpg");
   height: 100vh;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.75;
   width: 100%;
 
   section {
-    width: 400px;
-    position: absolute;
-    top: 25%;
-    right: 25%;
+    width: 280px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
     border: 1px solid gray;
     border-radius: 40px;
     background-color: white;
@@ -21,8 +24,22 @@
     flex-direction: column;
 
     img {
-      width: 200px;
-      margin-top: 20px;
+      width: 180px;
+      margin-bottom: 10px;
+    }
+    a {
+      height: 35px;
+      width: 150px;
+      border: 1px solid black;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #98beab;
+      cursor: pointer;
     }
   }
 }
@@ -32,5 +49,7 @@
   opacity: 1;
   color: black;
   padding-top: 20px;
-  margin-top: 20px;
+  margin: 18px;
+  font-size: 20px;
+  text-align: center;
 }

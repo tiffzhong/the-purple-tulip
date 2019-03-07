@@ -2,7 +2,17 @@ import React, { Component } from "react";
 
 class Footer extends Component {
   render() {
-    return <div>ig fb mail</div>;
+    return (
+      <footer>
+        Contact:
+        <a href="https://www.instagram.com/thepurpletulipinc/">
+          <i class="fab fa-instagram" />
+        </a>
+        <a href="mailto:ThePurpleTulip.inc@gmail.com">
+          <i class="far fa-envelope" />
+        </a>
+      </footer>
+    );
   }
 }
 export default Footer;
