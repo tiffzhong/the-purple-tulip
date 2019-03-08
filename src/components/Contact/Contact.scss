@@ -2,14 +2,15 @@
   font-family: "Quicksand", sans-serif;
   height: 100vh;
   background-image: url("../Images/tulipsingle.jpg");
-  //   background-size: 100%;
+  background-size: cover;
   width: 100%;
   opacity: 0.85;
+
   section {
-    width: 60%;
+    width: 50%;
     background-color: white;
-    opacity: 0.8;
-    position: absolute;
+    opacity: 0.9;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -18,39 +19,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 10px 0;
 
     h1 {
       font-size: 30px;
       margin: 0 auto;
     }
     p {
-      font-size: 15px;
+      font-size: 13px;
       text-align: center;
       margin: 5px;
     }
   }
+
   form {
     display: flex;
-    justify-content: center;
+    //  justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
     input {
       font-size: 14px;
-      height: 28px;
-      width: 85%;
+      height: 25px;
+      width: 80%;
       margin-bottom: 15px;
       border: 1px solid gray;
       border-radius: 5px;
     }
     label {
+      // align-items: flex-start;
+      font-weight: bold;
       font-size: 14px;
       margin: 0;
     }
     textarea {
       font-size: 14px;
-      width: 85%;
+      width: 80%;
       height: 50px;
       resize: none;
       margin-bottom: 15px;
@@ -59,26 +63,33 @@
       border-radius: 5px;
     }
     button {
-      height: 35px;
+      height: 30px;
       width: 150px;
-      border: 1px solid #ae85aa;
+      background-color: #98beab;
       border-radius: 5px;
       font-size: 15px;
       color: black;
       margin-bottom: 10px;
     }
     button:hover {
-      color: #98beab;
+      border: 1px solid #ae85aa;
     }
   }
 }
-
 .text-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: black;
+  position: absolute;
+  bottom: 30px;
   a {
     text-decoration: none;
     color: black;
+    margin: 0 5px;
   }
   a:hover {
+    cursor: pointer;
     color: #98beab;
   }
 }

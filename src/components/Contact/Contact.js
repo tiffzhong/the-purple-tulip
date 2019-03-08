@@ -29,10 +29,10 @@ class Contact extends Component {
           <h1>Contact </h1>
           <p>
             Contact me to place an order, inquire for an event, or schedule a
-            consultation. <br />I will respond to you as soon as I can.
+            consultation.
           </p>
           <form onSubmit={event => this.onSubmit(event)}>
-            <label>Full Name:</label>
+            <label>Your Name:</label>
             <input
               //   placeholder="Full Name"
               name="fullname"
@@ -48,11 +48,7 @@ class Contact extends Component {
               value={email}
               onChange={event => this.handleChange(event)}
             />
-            <label>
-              {" "}
-              Inquiry Type (orders, corporate event, wedding, or something
-              else!):
-            </label>
+            <label> Inquiry (delivery, corporate event, wedding, etc.):</label>
             <input
               //   placeholder="Inquiry Type (ordering, corporate event, wedding, or something else!)"
               name="inquiry"
@@ -86,18 +82,18 @@ class Contact extends Component {
             />
             <button>Submit </button>
           </form>
-          <div className="text-container">
-            Follow us on{" "}
-            <a href="https://www.instagram.com/thepurpletulipinc/">
-              <i class="fab fa-instagram" />
-            </a>{" "}
-            | Email:{" "}
-            <a href="mailto:ThePurpleTulip.inc@gmail.com">
-              ThePurpleTulip.inc@gmail.com
-            </a>{" "}
-            | Text: 408-872-2972
-          </div>
         </section>
+        <div className="text-container">
+          Follow us on{"  "}
+          <a href="https://www.instagram.com/thepurpletulipinc/">
+            <i class="fab fa-instagram" />
+          </a>{" "}
+          | Email:{" "}
+          <a href="mailto:ThePurpleTulip.inc@gmail.com">
+            ThePurpleTulip.inc@gmail.com
+          </a>{" "}
+          | Text: 408-872-2972
+        </div>
       </div>
     );
   }
