@@ -1,0 +1,46 @@
+.about-container {
+  font-family: "Quicksand", sans-serif;
+  width: 100%;
+  background-color: #a894c2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  section {
+    background-color: white;
+    opacity: 0.9;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+    border-radius: 40px;
+    width: 550px;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 35px;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 10px;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  article {
+    padding-left: 10px;
+    font-size: 15px;
+  }
+}

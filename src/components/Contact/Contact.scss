@@ -7,7 +7,7 @@
   opacity: 0.85;
 
   section {
-    width: 50%;
+    width: 450px;
     background-color: white;
     opacity: 0.9;
     position: fixed;
@@ -22,13 +22,14 @@
     padding: 10px 0;
 
     h1 {
-      font-size: 30px;
+      font-size: 35px;
       margin: 0 auto;
     }
     p {
-      font-size: 13px;
+      font-size: 14px;
       text-align: center;
       margin: 5px;
+      width: 80%;
     }
   }
 
@@ -38,8 +39,10 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    box-sizing: border-box;
+
     input {
-      font-size: 14px;
+      font-size: 15px;
       height: 25px;
       width: 80%;
       margin-bottom: 15px;
@@ -47,13 +50,13 @@
       border-radius: 5px;
     }
     label {
-      // align-items: flex-start;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 15px;
       margin: 0;
+      width: 80%;
     }
     textarea {
-      font-size: 14px;
+      font-size: 15px;
       width: 80%;
       height: 50px;
       resize: none;
