@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "./Services.scss";
+import pink from "../Images/pink.jpg";
+import purple from "../Images/purple.jpg";
+import blue from "../Images/blue.jpeg";
+import { Link } from "react-router-dom";
 class Services extends Component {
   render() {
     return (
@@ -16,16 +20,22 @@ class Services extends Component {
 
           <div className="service-images">
             <article>
-              <h4>Weddings</h4>
-              <img src="" alt="weddings" />
+              <Link to="/weddings">
+                <h4>Weddings</h4>
+                <img src={pink} alt="weddings" />
+              </Link>
+            </article>
+            <article className="daily">
+              <Link to="/arrangements">
+                <h4>Daily Arrangements</h4>
+                <img src={blue} alt="daily" />
+              </Link>
             </article>
             <article>
-              <h4>Daily Arrangements</h4>
-              <img src="" alt="daily" />
-            </article>
-            <article>
-              <h4>Special Events</h4>
-              <img src="" alt="events" />
+              <Link to="/events">
+                <h4>Special Events</h4>
+                <img src={purple} alt="events" />
+              </Link>
             </article>
           </div>
         </section>

@@ -5,6 +5,9 @@ import Gallery from "./components/Gallery/Gallery";
 import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import Contact from "./components/Contact/Contact";
+import Arrangements from "./components/Arrangements/Arrangements";
+import Weddings from "./components/Weddings/Weddings";
+import Events from "./components/Events/Events";
 
 export default (
   <Switch>
@@ -13,5 +16,8 @@ export default (
     <Route path="/about" component={About} />
     <Route path="/services" component={Services} />
     <Route path="/contact" component={Contact} />
+    <Route path="/arrangements" component={Arrangements} />
+    <Route path="/weddings" component={Weddings} />
+    <Route path="/events" component={Events} />
   </Switch>
 );

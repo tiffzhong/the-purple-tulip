@@ -1,0 +1,78 @@
+.services-container {
+  font-family: "Quicksand", sans-serif;
+  width: 100%;
+  background-color: #bcd1bb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  section {
+    background-color: white;
+    opacity: 0.9;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+    border-radius: 40px;
+    width: 800px;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 35px;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    width: 75%;
+    padding-top: 10px;
+  }
+}
+
+.service-images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .daily {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h4 {
+      position: absolute;
+      width: 350px;
+      cursor: pointer;
+    }
+    // a {
+    //   color: black;
+    // }
+  }
+  article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 20px auto;
+    img {
+      height: 250px;
+      border-radius: 10px;
+    }
+    h4 {
+      position: absolute;
+      font-size: 26px;
+      background-color: white;
+      opacity: 0.75;
+      width: 190px;
+      cursor: pointer;
+      height: 35px;
+    }
+    a {
+      color: black;
+    }
+  }
+}
