@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Gallery extends Component {
   constructor(props) {
@@ -8,6 +9,9 @@ class Gallery extends Component {
     };
   }
 
+  login = () => {
+    axios.get("/auth/authorize_user");
+  };
   render() {
     return <div>Gallery</div>;
   }

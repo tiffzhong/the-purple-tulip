@@ -1,4 +1,11 @@
 const nodemailer = require("nodemailer");
+const ig = require("instagram-node").instagram();
+  ig.use({
+    client_id: process.env.IG_CLIENT_ID,
+    client_secret: process.env.IG_CLIENT_SECRET
+  });
+
+const redirect_uri = "http://localhost:3000/auth/handleauth";
 
 module.exports = {
   newOrder: (req, res) => {
@@ -54,5 +61,26 @@ module.exports = {
         return console.log("Email sent " + info.response);
       }
     });
-  }
+  },
+  authorize_user = function(req, res) {
+   res.redirect(
+     ig.get_authorization_url(redirect_uri, {
+       scope: ["public_content"],
+       state: "a state"
+     })
+   );
+ },
+  handleauth = function(req, res) {
+   ig.authorize_user(req.query.code, redirect_uri, function(err, result) {
+     if (err) {
+       console.log(err.body);
+       res.send(err, "Didn't work");
+     } else {
+       access_token = result.access_token;
+       console.log("Yay! Access token is " + result.access_token);
+       res.send("You made it!!");
+     }
+   });
+ },
+
 };
