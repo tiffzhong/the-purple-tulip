@@ -1,12 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Confirmation.scss";
 
 function Confirmation(props) {
   return (
-    <div className="confirmation-page-container">
-      Thank you so much for your Inquiry! I will get back to you as soon as I
-      can.
-      <Link to="/services">Services</Link>
+    <div className="confirmation-container">
+      <section>
+        <h1>Talk soon!</h1>
+        <p>
+          I have received your inquiry! I will get in touch with you as soon as
+          I can.
+        </p>
+        <br />
+        <Link to="/gallery">Gallery</Link>
+        <Link to="/services">Services</Link>
+      </section>
     </div>
   );
 }

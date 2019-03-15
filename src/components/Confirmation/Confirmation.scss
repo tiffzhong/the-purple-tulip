@@ -1,0 +1,33 @@
+.confirmation-container {
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
+  background-image: url("../Images/tul.jpg");
+  background-size: cover;
+  width: 100%;
+  opacity: 0.85;
+  section {
+    width: 450px;
+    background-color: white;
+    opacity: 0.9;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    h1 {
+      font-size: 35px;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 18px;
+      text-align: center;
+      margin: 5px;
+      width: 80%;
+    }
+  }
+}
