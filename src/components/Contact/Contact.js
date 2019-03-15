@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Contact.scss";
+import axios from "axios";
 
 class Contact extends Component {
   constructor() {
@@ -18,6 +19,22 @@ class Contact extends Component {
       [event.target.name]: event.target.value
     });
   };
+
+  order = () => {
+    const { fullname, email, inquiry, date, location, details } = this.state;
+    axios
+      .post("/api/email/order", {
+        fullname,
+        email,
+        inquiry,
+        date,
+        location,
+        details
+      })
+      .then((window.location.pathname = "/confirmation"))
+      .catch(error => error, "error in order method");
+  };
+
   onSubmit = event => {
     event.preventDefault();
   };
@@ -34,7 +51,6 @@ class Contact extends Component {
           <form onSubmit={event => this.onSubmit(event)}>
             <label>Your Name:</label>
             <input
-              //   placeholder="Full Name"
               name="fullname"
               type="text"
               value={fullname}
@@ -42,7 +58,6 @@ class Contact extends Component {
             />
             <label>Email:</label>
             <input
-              //   placeholder="Email"
               name="email"
               type="text"
               value={email}
@@ -50,7 +65,6 @@ class Contact extends Component {
             />
             <label> Inquiry (delivery, corporate event, wedding, etc.):</label>
             <input
-              //   placeholder="Inquiry Type (ordering, corporate event, wedding, or something else!)"
               name="inquiry"
               type="text"
               value={inquiry}
@@ -58,7 +72,6 @@ class Contact extends Component {
             />
             <label>Event Date:</label>
             <input
-              //   placeholder="Event Date"
               name="date"
               type="text"
               value={date}
@@ -66,7 +79,6 @@ class Contact extends Component {
             />
             <label>Location:</label>
             <input
-              //   placeholder="Location"
               name="location"
               type="text"
               value={location}
@@ -80,7 +92,13 @@ class Contact extends Component {
               value={details}
               onChange={event => this.handleChange(event)}
             />
-            <button>Submit </button>
+            <button
+              onClick={() => {
+                this.order(fullname, email, inquiry, date, location, details);
+              }}
+            >
+              Submit
+            </button>
           </form>
         </section>
         <div className="text-container">

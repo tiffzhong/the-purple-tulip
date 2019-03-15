@@ -8,6 +8,7 @@ import Contact from "./components/Contact/Contact";
 import Arrangements from "./components/Arrangements/Arrangements";
 import Weddings from "./components/Weddings/Weddings";
 import Events from "./components/Events/Events";
+import Confirmation from "./components/Confirmation/Confirmation";
 
 export default (
   <Switch>
@@ -19,5 +20,6 @@ export default (
     <Route path="/arrangements" component={Arrangements} />
     <Route path="/weddings" component={Weddings} />
     <Route path="/events" component={Events} />
+    <Route path="/confirmation" component={Confirmation} />
   </Switch>
 );
