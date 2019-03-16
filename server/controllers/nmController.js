@@ -43,8 +43,6 @@ module.exports = {
       </div>  
     `;
 
-      console.log(inquiry_id, "____________")
-
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
