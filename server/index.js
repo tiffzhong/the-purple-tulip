@@ -15,6 +15,7 @@ massive(process.env.CONNECTION_STRING)
   });
 
 const nmController = require("./controllers/nmController");
+const igController = require("./controllers/igController");
 //IG
 // app.post("/auth/token", controller.);
 // app.get("/auth/authorize_user", controller.authorize_user);
@@ -22,6 +23,9 @@ const nmController = require("./controllers/nmController");
 
 //Nodemailer
 app.post("/api/email/order", nmController.newOrder);
+
+//Instagram
+app.get("/api/ig/getPictures", igController.getImages);
 
 const PORT = 4000;
 app.listen(PORT, () => {

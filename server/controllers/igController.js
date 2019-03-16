@@ -1,4 +1,5 @@
 const ig = require("instagram-node").instagram();
+let axios = require("axios");
 
 ig.use({
     client_id: process.env.IG_CLIENT_ID,
@@ -6,26 +7,9 @@ ig.use({
   });
 
   module.exports = {
-      //IG API
-
-  //   authorize_user = function(req, res) {
-  //    res.redirect(
-  //      ig.get_authorization_url(redirect_uri, {
-  //        scope: ["public_content", "likes"],
-  //        state: "a state"
-  //      })
-  //    );
-  //  },
-  //   handleauth = function(req, res) {
-  //    ig.authorize_user(req.query.code, redirect_uri, function(err, result) {
-  //      if (err) {
-  //        console.log(err.body);
-  //        res.send(err, "Didn't work");
-  //      } else {
-  //        access_token = result.access_token;
-  //        console.log("Yay! Access token is " + result.access_token);
-  //        res.send("You made it!!");
-  //      }
-  //    });
-  //  }
+      getImages: (req, res) => {
+          axios.get("https://api.instagram.com/v1/users/self/media/recent/?access_token=802048.1677ed0.1c61334eefc141299bf9aad3ac9e972a").then(response => {
+              res.status(200).send(response.data)
+          })
+      }
   }
