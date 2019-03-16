@@ -1,18 +1,14 @@
 const nodemailer = require("nodemailer");
 
-
-
-const redirect_uri = "http://localhost:3000/auth/handleauth";
-
 module.exports = {
   newOrder: (req, res) => {
     console.log(req.body, "newOrder req.body");
     console.log(req.params, "newOrder req.params");
-    const { id, fullname, email, inquiry, date, location, details } = req.body;
+    const { fullname, email, inquiry, date, location, details } = req.body;
 
     const database = req.app.get("db");
     database
-      .order_inquiry([id, fullname, email, inquiry, date, location, details])
+      .order_inquiry([fullname, email, inquiry, date, location, details])
       .then(() => res.status(200).send());
 
     let newFullName = fullname,
@@ -60,6 +56,4 @@ module.exports = {
       }
     });
   }
-
-  
 };
