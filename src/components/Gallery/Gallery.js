@@ -9,9 +9,9 @@ class Gallery extends Component {
     };
   }
 
-  login = () => {
-    axios.get("/auth/authorize_user");
-  };
+  // login = () => {
+  //   axios.get("/auth/authorize_user");
+  // };
   render() {
     return <div>Gallery</div>;
   }

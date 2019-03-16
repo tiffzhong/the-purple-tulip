@@ -1,20 +1,21 @@
 const nodemailer = require("nodemailer");
 const ig = require("instagram-node").instagram();
-  ig.use({
-    client_id: process.env.IG_CLIENT_ID,
-    client_secret: process.env.IG_CLIENT_SECRET
-  });
+ig.use({
+  client_id: process.env.IG_CLIENT_ID,
+  client_secret: process.env.IG_CLIENT_SECRET
+});
 
 const redirect_uri = "http://localhost:3000/auth/handleauth";
 
 module.exports = {
   newOrder: (req, res) => {
     console.log(req.body, "newOrder req.body");
-    const { fullname, email, inquiry, date, location, details } = req.body;
+    console.log(req.params, "newOrder req.params");
+    const { id, fullname, email, inquiry, date, location, details } = req.body;
 
     const database = req.app.get("db");
     database
-      .order_inquiry([fullname, email, inquiry, date, location, details])
+      .order_inquiry([id, fullname, email, inquiry, date, location, details])
       .then(() => res.status(200).send());
 
     let newFullName = fullname,
@@ -61,26 +62,32 @@ module.exports = {
         return console.log("Email sent " + info.response);
       }
     });
-  },
-  authorize_user = function(req, res) {
-   res.redirect(
-     ig.get_authorization_url(redirect_uri, {
-       scope: ["public_content"],
-       state: "a state"
-     })
-   );
- },
-  handleauth = function(req, res) {
-   ig.authorize_user(req.query.code, redirect_uri, function(err, result) {
-     if (err) {
-       console.log(err.body);
-       res.send(err, "Didn't work");
-     } else {
-       access_token = result.access_token;
-       console.log("Yay! Access token is " + result.access_token);
-       res.send("You made it!!");
-     }
-   });
- },
-
+  }
+  //   getInquiry: (req, res) => {
+  //     const database = req.app.get("db");
+  //     database.get_inquiry().then(inquiry => {
+  //       console.log(inquiry);
+  //       res.status(200).send(inquiry);
+  //     });
+  //   }
+  //   authorize_user = function(req, res) {
+  //    res.redirect(
+  //      ig.get_authorization_url(redirect_uri, {
+  //        scope: ["public_content", "likes"],
+  //        state: "a state"
+  //      })
+  //    );
+  //  },
+  //   handleauth = function(req, res) {
+  //    ig.authorize_user(req.query.code, redirect_uri, function(err, result) {
+  //      if (err) {
+  //        console.log(err.body);
+  //        res.send(err, "Didn't work");
+  //      } else {
+  //        access_token = result.access_token;
+  //        console.log("Yay! Access token is " + result.access_token);
+  //        res.send("You made it!!");
+  //      }
+  //    });
+  //  }
 };

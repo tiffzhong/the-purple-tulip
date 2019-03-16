@@ -16,8 +16,9 @@ massive(process.env.CONNECTION_STRING)
 
 const controller = require("./controller");
 //IG
-app.get("/auth/authorize_user", controller.authorize_user);
-app.get("/auth/handleauth", controller.handleauth);
+// app.post("/auth/token", controller.);
+// app.get("/auth/authorize_user", controller.authorize_user);
+// app.get("/auth/handleauth", controller.handleauth);
 
 //Nodemailer
 app.post("/api/email/order", controller.newOrder);
