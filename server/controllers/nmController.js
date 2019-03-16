@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+<<<<<<< HEAD
 const uniqid = require("uniqid");
 
 
@@ -7,10 +8,20 @@ module.exports = {
     // console.log(req.body, "newOrder req.body");
     // console.log(req.params, "newOrder req.params");
     const {fullname, email, inquiry, date, location, details } = req.body;
+=======
+
+module.exports = {
+  newOrder: (req, res) => {
+    console.log(req.body, "newOrder req.body");
+    console.log(req.params, "newOrder req.params");
+    const { fullname, email, inquiry, date, location, details } = req.body;
+
+>>>>>>> 790fc66a745b3c9ca777ef7ec99fb2867f5f28ce
     const database = req.app.get("db");
     let id = uniqid('inq-');
 
     database
+<<<<<<< HEAD
       .order_inquiry([id, fullname, email, inquiry, date, location, details])
       .then((response) => {
         console.log(response);
@@ -19,6 +30,10 @@ module.exports = {
       }).catch(e => {
         console.log("error in newORder", e)
       });
+=======
+      .order_inquiry([fullname, email, inquiry, date, location, details])
+      .then(() => res.status(200).send());
+>>>>>>> 790fc66a745b3c9ca777ef7ec99fb2867f5f28ce
 
     let newFullName = fullname,
       inquiry_id = id
@@ -66,6 +81,4 @@ module.exports = {
       }
     });
   }
-
-  
 };
