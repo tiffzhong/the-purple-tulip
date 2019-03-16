@@ -2,8 +2,6 @@ const nodemailer = require("nodemailer");
 
 
 
-const redirect_uri = "http://localhost:3000/auth/handleauth";
-
 module.exports = {
   newOrder: (req, res) => {
     console.log(req.body, "newOrder req.body");
