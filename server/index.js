@@ -14,14 +14,14 @@ massive(process.env.CONNECTION_STRING)
     console.log("error w massive", error);
   });
 
-const controller = require("./controller");
+const nmController = require("./controllers/nmController");
 //IG
 // app.post("/auth/token", controller.);
 // app.get("/auth/authorize_user", controller.authorize_user);
 // app.get("/auth/handleauth", controller.handleauth);
 
 //Nodemailer
-app.post("/api/email/order", controller.newOrder);
+app.post("/api/email/order", nmController.newOrder);
 
 const PORT = 4000;
 app.listen(PORT, () => {
