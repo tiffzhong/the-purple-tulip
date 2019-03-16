@@ -63,13 +63,9 @@ module.exports = {
       }
     });
   }
-  //   getInquiry: (req, res) => {
-  //     const database = req.app.get("db");
-  //     database.get_inquiry().then(inquiry => {
-  //       console.log(inquiry);
-  //       res.status(200).send(inquiry);
-  //     });
-  //   }
+
+  //IG API
+
   //   authorize_user = function(req, res) {
   //    res.redirect(
   //      ig.get_authorization_url(redirect_uri, {
