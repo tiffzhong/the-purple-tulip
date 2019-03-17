@@ -3,8 +3,6 @@ const uniqid = require("uniqid");
 
 module.exports = {
   newOrder: (req, res) => {
-    // console.log(req.body, "newOrder req.body");
-    // console.log(req.params, "newOrder req.params");
     const { fullname, email, inquiry, date, location, details } = req.body;
     const database = req.app.get("db");
     let id = uniqid("inq-");
@@ -13,24 +11,24 @@ module.exports = {
       .order_inquiry([id, fullname, email, inquiry, date, location, details])
       .then(response => {
         console.log(response);
-
         res.status(200).send();
       })
       .catch(e => {
-        console.log("error in newORder", e);
+        console.log("error in newOrder", e);
       });
 
     let newFullName = fullname,
-      inquiry_id = id;
-    (newEmail = email),
-      (newInquiry = inquiry),
-      (newDate = date),
-      (newLocation = location),
-      (newDetails = details),
-      (content = `
+      inquiry_id = id,
+      newEmail = email,
+      newInquiry = inquiry,
+      newDate = date,
+      newLocation = location,
+      newDetails = details,
+      content = `
       <header style="background: #A894C2; text-align: center;  height: 30px; font-family:arial;"><h1>The Purple Tulip: New Inquiry</h1></header>
       <div style="font-family:arial; "><p style= "font-size: 18px;">You have a new inquiry: </p>
       <ul style="list-style-type:none; font-size: 16px;">
+        <li>Inquiry ID: ${inquiry_id}</li> <br />
         <li>Name: ${newFullName}</li><br />
         <li>Email: ${newEmail}</li><br />
         <li>Inquiry: ${newInquiry}</li><br />
@@ -41,7 +39,7 @@ module.exports = {
       <div style="background: #98BEAB; height: 20px;">
       <p style="color: black; text-align: center">TPT</p></div>
       </div>  
-    `);
+    `;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",

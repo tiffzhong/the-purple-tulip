@@ -15,7 +15,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid gray;
-    border-radius: 40px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,12 +83,12 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  color: black;
+  color: white;
   position: absolute;
   bottom: 30px;
   a {
     text-decoration: none;
-    color: black;
+    color: white;
     margin: 0 5px;
   }
   a:hover {

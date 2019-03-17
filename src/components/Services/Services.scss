@@ -16,7 +16,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid gray;
-    border-radius: 40px;
+    border-radius: 10px;
     width: 800px;
     padding: 20px;
   }
@@ -45,12 +45,14 @@
     align-items: center;
     h4 {
       position: absolute;
+      font-size: 26px;
+      background-color: white;
+      opacity: 0.75;
       width: 350px;
       cursor: pointer;
+      height: 30px;
+      margin-top: 150px;
     }
-    // a {
-    //   color: black;
-    // }
   }
   article {
     display: flex;
@@ -69,7 +71,9 @@
       opacity: 0.75;
       width: 190px;
       cursor: pointer;
-      height: 35px;
+      height: 30px;
+      margin-top: 150px;
+      padding: 5px;
     }
     a {
       color: black;

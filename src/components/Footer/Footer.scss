@@ -1,5 +1,18 @@
-footer {
+.footer-container {
+  width: 100%;
+  font-family: "Quicksand", sans-serif;
+  height: 40px;
+  background-color: lightgrey;
   display: flex;
   justify-content: center;
-  background-color: #bcd1bb;
+  align-items: center;
+
+  a {
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    color: #a894c2;
+  }
 }

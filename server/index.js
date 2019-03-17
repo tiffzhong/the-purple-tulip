@@ -16,10 +16,6 @@ massive(process.env.CONNECTION_STRING)
 
 const nmController = require("./controllers/nmController");
 const igController = require("./controllers/igController");
-//IG
-// app.post("/auth/token", controller.);
-// app.get("/auth/authorize_user", controller.authorize_user);
-// app.get("/auth/handleauth", controller.handleauth);
 
 //Nodemailer
 app.post("/api/email/order", nmController.newOrder);

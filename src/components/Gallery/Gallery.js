@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import "./Gallery.scss";
 class Gallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // images is an array of the 20 most recent instagram post including
-      // caption, comments, unique id, 3 sizes of image, direct link to post on ig,
-      // tags, like count, users in photo
       images: []
     };
   }
@@ -25,11 +22,29 @@ class Gallery extends Component {
   };
   render() {
     const { images } = this.state;
+    console.log(images[0]);
 
-    // showing just one image so console isn't a mess
-    console.log(this.state.images[0]);
-
-    return <div>Gallery</div>;
+    let photos = images.map(i => {
+      return (
+        <>
+          <img src={i.images.standard_resolution.url} alt="ig" />
+        </>
+      );
+    });
+    return (
+      <div className="gallery-container">
+        <section>
+          <article>
+            <h1>Keep up to date with my work on Instagram</h1>
+            <br />
+            <a href="https://www.instagram.com/thepurpletulipinc/">
+              @thepurpletulipinc
+            </a>
+          </article>
+          {photos}
+        </section>
+      </div>
+    );
   }
 }
 export default Gallery;

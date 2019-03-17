@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 import routes from "./routes";
-
+import "./reset.scss";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <>
         <NavBar />
         {routes}
         <Footer />
-      </div>
+      </>
     );
   }
 }
