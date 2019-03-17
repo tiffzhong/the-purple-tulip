@@ -3,7 +3,6 @@ const nodemailer = require("nodemailer");
 module.exports = {
   newOrder: (req, res) => {
     console.log(req.body, "newOrder req.body");
-    console.log(req.params, "newOrder req.params");
     const { fullname, email, inquiry, date, location, details } = req.body;
 
     const database = req.app.get("db");
@@ -42,7 +41,7 @@ module.exports = {
     });
 
     const mailOptions = {
-      from: `"The Purple Tulip" <${process.env.EMAIL}>`,
+      from: `"The Purple Tulip" <${process.env.EMAIL}`,
       to: "tiffzhong@gmail.com",
       subject: `The Purple Tulip: New Inquiry`,
       html: content

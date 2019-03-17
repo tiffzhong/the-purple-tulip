@@ -14,21 +14,21 @@ class Gallery extends Component {
 
   componentDidMount = () => {
     this.getImages();
-  }
+  };
 
   getImages = () => {
     axios.get("/api/ig/getPictures").then(res => {
       this.setState({
         images: res.data.data
-      })
-    })
-  }
+      });
+    });
+  };
   render() {
-    const { images } = this.state
+    const { images } = this.state;
 
     // showing just one image so console isn't a mess
-    console.log(this.state.images[0])
-    
+    console.log(this.state.images[0]);
+
     return <div>Gallery</div>;
   }
 }
