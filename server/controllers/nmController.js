@@ -1,47 +1,33 @@
 const nodemailer = require("nodemailer");
-<<<<<<< HEAD
 const uniqid = require("uniqid");
-
 
 module.exports = {
   newOrder: (req, res) => {
     // console.log(req.body, "newOrder req.body");
     // console.log(req.params, "newOrder req.params");
-    const {fullname, email, inquiry, date, location, details } = req.body;
-=======
-
-module.exports = {
-  newOrder: (req, res) => {
-    console.log(req.body, "newOrder req.body");
     const { fullname, email, inquiry, date, location, details } = req.body;
-
->>>>>>> 790fc66a745b3c9ca777ef7ec99fb2867f5f28ce
     const database = req.app.get("db");
-    let id = uniqid('inq-');
+    let id = uniqid("inq-");
 
     database
-<<<<<<< HEAD
       .order_inquiry([id, fullname, email, inquiry, date, location, details])
-      .then((response) => {
+      .then(response => {
         console.log(response);
-        
-        res.status(200).send()
-      }).catch(e => {
-        console.log("error in newORder", e)
+
+        res.status(200).send();
+      })
+      .catch(e => {
+        console.log("error in newORder", e);
       });
-=======
-      .order_inquiry([fullname, email, inquiry, date, location, details])
-      .then(() => res.status(200).send());
->>>>>>> 790fc66a745b3c9ca777ef7ec99fb2867f5f28ce
 
     let newFullName = fullname,
-      inquiry_id = id
-      newEmail = email,
-      newInquiry = inquiry,
-      newDate = date,
-      newLocation = location,
-      newDetails = details,
-      content = `
+      inquiry_id = id;
+    (newEmail = email),
+      (newInquiry = inquiry),
+      (newDate = date),
+      (newLocation = location),
+      (newDetails = details),
+      (content = `
       <header style="background: #A894C2; text-align: center;  height: 30px; font-family:arial;"><h1>The Purple Tulip: New Inquiry</h1></header>
       <div style="font-family:arial; "><p style= "font-size: 18px;">You have a new inquiry: </p>
       <ul style="list-style-type:none; font-size: 16px;">
@@ -55,7 +41,7 @@ module.exports = {
       <div style="background: #98BEAB; height: 20px;">
       <p style="color: black; text-align: center">TPT</p></div>
       </div>  
-    `;
+    `);
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
