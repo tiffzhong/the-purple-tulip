@@ -21,6 +21,7 @@ class Contact extends Component {
   };
 
   order = () => {
+    console.log('order is running')
     const { fullname, email, inquiry, date, location, details } = this.state;
     axios
       .post("/api/email/order", {
