@@ -14,19 +14,22 @@ class About extends Component {
             for business or pleasure.
           </p>
 
-          <div className="info">
-            <img src={orange} width="250" alt="" />
+          <div className="mission">
+            <img src={orange} width="200" alt="" />
             <article>
               Mission: Flowers for a brighter and happier state of mind.
               <br />
               <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              During the past decade plus, we have elevated wedding and event
+              floral design, creating artful arrangements from clean and
+              contemporary to lush and foraged. We bring art to life by
+              combining your inspiration and ideas with the finest floral
+              materials, incomparable service and skilled artisanship. We source
+              our flowers from all points of the globe, and our well-appointed
+              designs are created through our unique depth and quality of
+              experience.
+              <br />
+              We strive for an experience of satisfaction and nothing less.
             </article>
           </div>
         </section>

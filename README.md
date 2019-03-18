@@ -4,4 +4,5 @@
 #C8BFDB - light purple
 #98BEAB - seafoam
 #BCD1BB - light green
+#EAD5D1 -soft pink
 -->

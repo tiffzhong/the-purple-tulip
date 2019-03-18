@@ -16,6 +16,11 @@ class Services extends Component {
             and personal parties, gallery openings, and many other events.
             Whatever your event and whatever theme you want to create - we are
             ready and excited to get started on planning!
+            <br />
+            <br />
+            Every arrangement we make is a new, fresh, inspired creation based
+            on what we have in the shop. We can do special orders given enough
+            advance notice.
           </p>
 
           <div className="service-images">
