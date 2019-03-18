@@ -9,7 +9,7 @@ import Arrangements from "./components/Arrangements/Arrangements";
 import Weddings from "./components/Weddings/Weddings";
 import Events from "./components/Events/Events";
 import Confirmation from "./components/Confirmation/Confirmation";
-
+import Admin from "./components/Admin/Admin";
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
@@ -21,5 +21,6 @@ export default (
     <Route path="/weddings" component={Weddings} />
     <Route path="/events" component={Events} />
     <Route path="/confirmation" component={Confirmation} />
+    <Route path="/admin" component={Admin} />
   </Switch>
 );

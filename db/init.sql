@@ -8,3 +8,10 @@ date text,
 location text,
 details text
 )
+select * from inquiries;
+
+create table admin (
+id serial primary key,
+username varchar(15) unique,
+password varchar(15)
+);
