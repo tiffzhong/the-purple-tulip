@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import "./Services.scss";
+import "./Shop.scss";
 import pink from "../Images/pink.jpg";
 import purple from "../Images/purple.jpg";
 import blue from "../Images/blue.jpeg";
 import { Link } from "react-router-dom";
-class Services extends Component {
+class Shop extends Component {
   render() {
     return (
-      <div className="services-container">
+      <div className="shop-container">
         <section>
-          <h1>Services</h1>
+          <h1>Shop</h1>
           <p>
             We design events to help congratulate, welcome, and inspire those
             around you, with arrangements and designs for weddings, corporate
@@ -48,4 +48,4 @@ class Services extends Component {
     );
   }
 }
-export default Services;
+export default Shop;

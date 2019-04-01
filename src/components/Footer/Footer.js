@@ -34,26 +34,23 @@ class Footer extends Component {
       <div className="footer-container">
         <div className="ig-container">
           {photos.slice(0, 5)}
-          <h1>
-            Follow my work on Instagram
+          <div className="follow-text">
+            <h1>
+              follow us on <i class="fab fa-instagram" />
+            </h1>
             <a href="https://www.instagram.com/thepurpletulipinc/">
               @thepurpletulipinc
             </a>
-          </h1>
+          </div>
         </div>
         <div className="link container">
           <Link to="/about">about</Link>
           <Link to="/gallery">gallery</Link>
-          <Link to="/services">services</Link>
+          <Link to="/shop">order</Link>
           <Link to="/contact">contact</Link>
-          <a href="https://www.instagram.com/thepurpletulipinc/">
-            <i class="fab fa-instagram" />
-          </a>
           <a href="mailto:ThePurpleTulip.inc@gmail.com">
             <i class="far fa-envelope" />
           </a>
-        </div>
-        <div>
           © 2019,<Link to="/">The Purple Tulip</Link>
         </div>
       </div>

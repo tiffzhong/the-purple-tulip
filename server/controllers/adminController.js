@@ -40,11 +40,19 @@ module.exports = {
     res.status(200).send();
   },
 
-  ensureLoggedIn: (req, res, next) => {
-    if (req.session.user) {
-      next();
-    } else {
-      res.status(403).json({ message: "You are not authorized" });
-    }
+  inquiries: (req, res) => {
+    const db = req.app.get("db");
+    db.get_inquiries()
+      .then(inq => {
+        res.status(200).send(inq);
+      })
+      .catch(error => console.log(error, "error in getting inquires"));
   }
+  // ensureLoggedIn: (req, res, next) => {
+  //   if (req.session.user) {
+  //     next();
+  //   } else {
+  //     res.status(403).json({ message: "You are not authorized" });
+  //   }
+  // }
 };

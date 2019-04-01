@@ -21,7 +21,7 @@ class Contact extends Component {
   };
 
   order = () => {
-    console.log('order is running')
+    console.log("order is running");
     const { fullname, email, inquiry, date, location, details } = this.state;
     axios
       .post("/api/email/order", {
@@ -103,15 +103,11 @@ class Contact extends Component {
           </form>
         </section>
         <div className="text-container">
-          Follow us on{"  "}
-          <a href="https://www.instagram.com/thepurpletulipinc/">
-            <i class="fab fa-instagram" />
-          </a>{" "}
-          | Email:{" "}
+          email:{" "}
           <a href="mailto:ThePurpleTulip.inc@gmail.com">
             ThePurpleTulip.inc@gmail.com
           </a>{" "}
-          | Text: 408-872-2972
+          | text: 408-872-2972
         </div>
       </div>
     );

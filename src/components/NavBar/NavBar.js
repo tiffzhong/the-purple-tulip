@@ -34,8 +34,8 @@ class NavBar extends Component {
           <Link to="/gallery">
             <li>gallery</li>
           </Link>
-          <Link to="/services">
-            <li>services</li>
+          <Link to="/shop">
+            <li>shop</li>
           </Link>
           <Link to="/contact">
             <li>contact</li>

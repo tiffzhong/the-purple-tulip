@@ -35,7 +35,7 @@ app.get("/api/ig/getPictures", igController.getImages);
 app.post("/admin/register", adminController.register);
 app.post("/admin/login", adminController.login);
 app.post("/admin/logout", adminController.logout);
-app.get("admin/secure-data", adminController.ensureLoggedIn);
+app.get("/admin/inquiries", adminController.inquiries);
 
 const PORT = 4000;
 app.listen(PORT, () => {

@@ -6,9 +6,13 @@ class Admin extends Component {
   state = {
     user: null,
     showRegister: false,
-    message: null
+    message: null,
+    inq: []
   };
 
+  componentDidMount() {
+    this.inquiryData();
+  }
   getMessage = error =>
     error.response
       ? error.response.data
@@ -67,6 +71,12 @@ class Admin extends Component {
       });
   };
 
+  inquiryData = () => {
+    axios.get("/admin/inquiries").then(res => {
+      this.setState({ inq: res.data });
+    });
+  };
+
   render() {
     const { user, showRegister, message } = this.state;
 
@@ -77,9 +87,25 @@ class Admin extends Component {
       </div>
     );
 
+    const allData = this.state.inq.map(i => {
+      return (
+        <div className="inquiry-container">
+          #|date|inquiry_id|fullname|email|inquiry| location|details
+          {i.id}
+          {i.date}
+          {i.inquiry_id}
+          {i.fullname}
+          {i.email}
+          {i.inquiry}
+          {i.location}
+          {i.details}
+        </div>
+      );
+    });
+
     return (
       <div className="admin-page">
-        {!user && (
+        {!user ? (
           <div className="admin-container">
             <a
               href="javascript:void(0)"
@@ -111,13 +137,11 @@ class Admin extends Component {
               {message}
             </div>
           </div>
-        )}
-        {user && (
+        ) : (
           <div className="user-info">
             <h2>Hello, Admin!</h2>
-            <h4>Users: </h4>
-            <h4>Products </h4>
-
+            <h3>Your Inquiries</h3>
+            {allData}
             <button onClick={this.logout}>Log out</button>
           </div>
         )}
