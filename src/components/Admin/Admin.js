@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import "./Admin.scss";
 import axios from "axios";
+
+const { Provider, Consumer } = createContext({
+  user: null,
+  logout: () => {}
+});
 
 class Admin extends Component {
   state = {
@@ -10,9 +15,6 @@ class Admin extends Component {
     inq: []
   };
 
-  componentDidMount() {
-    this.inquiryData();
-  }
   getMessage = error =>
     error.response
       ? error.response.data
@@ -71,12 +73,6 @@ class Admin extends Component {
       });
   };
 
-  inquiryData = () => {
-    axios.get("/admin/inquiries").then(res => {
-      this.setState({ inq: res.data });
-    });
-  };
-
   render() {
     const { user, showRegister, message } = this.state;
 
@@ -87,65 +83,51 @@ class Admin extends Component {
       </div>
     );
 
-    const allData = this.state.inq.map(i => {
-      return (
-        <div className="inquiry-container">
-          #|date|inquiry_id|fullname|email|inquiry| location|details
-          {i.id}
-          {i.date}
-          {i.inquiry_id}
-          {i.fullname}
-          {i.email}
-          {i.inquiry}
-          {i.location}
-          {i.details}
-        </div>
-      );
-    });
-
     return (
-      <div className="admin-page">
-        {!user ? (
-          <div className="admin-container">
-            <a
-              href="javascript:void(0)"
-              onClick={() => this.setState({ showRegister: false })}
-            >
-              Login
-            </a>{" "}
-            <a
-              href="javascript:void(0)"
-              onClick={() => this.setState({ showRegister: true })}
-            >
-              Register
-            </a>
-            <div className="login-or-register">
-              {showRegister && (
-                <div>
-                  <h3>Register</h3>
-                  {inputFields}
-                  <button onClick={this.register}>Register</button>
-                </div>
-              )}
-              {!showRegister && (
-                <div>
-                  <h3>Log in</h3>
-                  {inputFields}
-                  <button onClick={this.login}>Log in</button>
-                </div>
-              )}
-              {message}
+      <Provider value={this.state}>
+        <div className="admin-page">
+          {!user ? (
+            <div className="admin-container">
+              <a
+                href="javascript:void(0)"
+                onClick={() => this.setState({ showRegister: false })}
+              >
+                Login
+              </a>{" "}
+              <a
+                href="javascript:void(0)"
+                onClick={() => this.setState({ showRegister: true })}
+              >
+                Register
+              </a>
+              <div className="login-or-register">
+                {showRegister && (
+                  <div>
+                    <h3>Register</h3>
+                    {inputFields}
+                    <button onClick={this.register}>Register</button>
+                  </div>
+                )}
+                {!showRegister && (
+                  <div>
+                    <h3>Log in</h3>
+                    {inputFields}
+                    <button onClick={this.login}>Log in</button>
+                  </div>
+                )}
+                {message}
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="user-info">
-            <h2>Hello, Admin!</h2>
-            <h3>Your Inquiries</h3>
-            {allData}
-            <button onClick={this.logout}>Log out</button>
-          </div>
-        )}
-      </div>
+          ) : (
+            <div className="user-info">
+              <h2>Hello, Admin!</h2>
+              <h3>Your Inquiries</h3>
+
+              <button onClick={this.logout}>Log out</button>
+            </div>
+          )}
+        </div>
+      </Provider>
     );
   }
 }
