@@ -46,8 +46,9 @@ class Contact extends Component {
         <section>
           <h1>Contact </h1>
           <p>
-            Contact me to place an order, inquire for an event, or schedule a
-            consultation.
+            Contact me to place an order/delivery or inquire for an event. If
+            you are looking to contact me for a wedding consultation, please
+            fill out this <a>form</a>.
           </p>
           <form onSubmit={event => this.onSubmit(event)}>
             <label>Your Name:</label>
@@ -64,7 +65,7 @@ class Contact extends Component {
               value={email}
               onChange={event => this.handleChange(event)}
             />
-            <label> Inquiry (delivery, corporate event, wedding, etc.):</label>
+            <label> Inquiry (order/delivery, corporate event, other):</label>
             <input
               name="inquiry"
               type="text"

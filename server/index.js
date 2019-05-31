@@ -28,8 +28,8 @@ const adminController = require("./controllers/adminController");
 //Nodemailer
 app.post("/api/email/order", nmController.newOrder);
 
-//Instagram
-app.get("/api/ig/getPictures", igController.getImages);
+// //Instagram
+// app.get("/api/ig/getPictures", igController.getImages);
 
 //Admin
 app.post("/admin/register", adminController.register);

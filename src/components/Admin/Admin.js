@@ -2,19 +2,22 @@ import React, { Component, createContext } from "react";
 import "./Admin.scss";
 import axios from "axios";
 
-const { Provider, Consumer } = createContext({
+const { Provider } = createContext({
   user: null,
   logout: () => {}
 });
 
 class Admin extends Component {
-  state = {
-    user: null,
-    showRegister: false,
-    message: null,
-    inq: []
-  };
+  constructor() {
+    super();
 
+    this.state = {
+      user: null,
+      showRegister: false,
+      message: null,
+      logout: () => this.logout()
+    };
+  }
   getMessage = error =>
     error.response
       ? error.response.data
@@ -52,6 +55,7 @@ class Admin extends Component {
       })
       .then(response => {
         this.setState({ user: response.data });
+        window.location.pathname = "/orders";
       })
       .catch(error => {
         this.setState({
@@ -86,7 +90,7 @@ class Admin extends Component {
     return (
       <Provider value={this.state}>
         <div className="admin-page">
-          {!user ? (
+          {!user && (
             <div className="admin-container">
               <a
                 href="javascript:void(0)"
@@ -118,13 +122,13 @@ class Admin extends Component {
                 {message}
               </div>
             </div>
-          ) : (
-            <div className="user-info">
-              <h2>Hello, Admin!</h2>
-              <h3>Your Inquiries</h3>
+            // ) : (
+            //   <div className="user-info">
+            //     <h2>Hello, Admin!</h2>
+            //     <h3>Your Inquiries</h3>
 
-              <button onClick={this.logout}>Log out</button>
-            </div>
+            //     <button onClick={this.logout}>Log out</button>
+            //   </div>
           )}
         </div>
       </Provider>

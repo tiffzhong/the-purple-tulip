@@ -1,7 +1,9 @@
 .about-container {
   font-family: "Quicksand", sans-serif;
   width: 100%;
-  background-color: #a894c2;
+  background-color: white;
+  background-image: url(../Images/bg.png);
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +19,7 @@
     transform: translate(-50%, -50%);
     border: 1px solid gray;
     border-radius: 10px;
-    width: 550px;
+    width: 90%;
     padding: 10px;
   }
   h1 {

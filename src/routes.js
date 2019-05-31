@@ -11,6 +11,7 @@ import Events from "./components/Events/Events";
 import Confirmation from "./components/Confirmation/Confirmation";
 import Admin from "./components/Admin/Admin";
 import Error from "./components/Error/Error";
+import AdminView from "./components/Admin/AdminView";
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
@@ -23,6 +24,7 @@ export default (
     <Route path="/events" component={Events} />
     <Route path="/confirmation" component={Confirmation} />
     <Route path="/admin" component={Admin} />
+    <Route path="/orders" component={AdminView} />
     <Route component={Error} />
   </Switch>
 );

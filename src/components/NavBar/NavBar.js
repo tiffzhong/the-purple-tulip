@@ -29,10 +29,13 @@ class NavBar extends Component {
         </div>
         <ul className={this.state.toggle ? "show" : "hide"}>
           <Link to="/about">
-            <li>about</li>
+            <li>home</li>
           </Link>
           <Link to="/gallery">
             <li>gallery</li>
+          </Link>
+          <Link to="/gallery">
+            <li>services</li>
           </Link>
           <Link to="/shop">
             <li>shop</li>

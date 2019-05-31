@@ -1,15 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import axios from "axios";
 
+const { Consumer } = createContext({});
+
 class AdminView extends Component {
-  constructor() {
+  constructor(props) {
+    super(props);
     this.state = {
-      user: null,
       inq: []
     };
   }
+
   componentDidMount() {
-    this.inquiryData();
+    // this.inquiryData();
   }
 
   inquiryData = () => {
@@ -34,7 +37,11 @@ class AdminView extends Component {
         </div>
       );
     });
-    return <div />;
+    return (
+      // <Consumer>
+      <div />
+      // </Consumer>
+    );
   }
 }
 
