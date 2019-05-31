@@ -11,6 +11,9 @@
   height: 100vh;
   text-align: center;
   section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
     opacity: 0.9;
     position: absolute;
@@ -19,11 +22,12 @@
     transform: translate(-50%, -50%);
     border: 1px solid gray;
     border-radius: 10px;
-    width: 90%;
-    padding: 10px;
+    width: 90vw;
+    height: 60vh;
+    padding: 2em;
   }
   h1 {
-    font-size: 35px;
+    font-size: 40px;
     margin: 0 auto;
   }
   p {
@@ -38,11 +42,19 @@
 .mission {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
-  margin: 10px;
+  img {
+    width: 350px;
+  }
+
   article {
+    display: flex;
+
+    margin: 1.5em;
     text-align: start;
     padding-left: 10px;
-    font-size: 15px;
+    font-size: 20px;
+    width: 550px;
   }
 }

@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import "./LandingPage.scss";
 import logo from "../Images/logo.png";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 class LandingPage extends Component {
   render() {
     return (
       <div className="landing">
+        <NavBar />
         <section>
           <div className="logo-container">
             <img src={logo} alt="logo" />

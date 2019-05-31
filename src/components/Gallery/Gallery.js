@@ -1,57 +1,51 @@
 import React, { Component } from "react";
-import axios from "axios";
+import g1 from "./gal1.jpg";
+import g2 from "./gal2.jpg";
+import g3 from "./gal3.jpg";
+import g4 from "./gal4.jpg";
+import g5 from "./gal5.jpg";
+import g6 from "./gal6.jpg";
 import "./Gallery.scss";
-import pink from "../Images/pink.jpg";
-import purple from "../Images/purple.jpg";
-import blue from "../Images/blue.jpeg";
-import { Link } from "react-router-dom";
+import NavBarv2 from "../NavBarv2/NavBarv2";
 
 class Gallery extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      images: []
-    };
+  constructor() {
+    super();
   }
   render() {
     return (
-      <div className="gallery-container">
-        <section>
-          <h1>Portfolio</h1>
-          <p>
-            We design events to help congratulate, welcome, and inspire those
-            around you, with arrangements and designs for weddings, corporate
-            and personal parties, gallery openings, and many other events.
-            Whatever your event and whatever theme you want to create - we are
-            ready and excited to get started on planning!
-            <br />
-            <br />
-            Every arrangement we make is a new, fresh, inspired creation based
-            on what we have in the shop. We can do special orders given enough
-            advance notice.
-          </p>
-
-          <div className="service-images">
-            <article>
-              <Link to="/weddings">
-                <h4>Weddings</h4>
-                <img src={pink} alt="weddings" />
-              </Link>
-            </article>
-            <article className="daily">
-              <Link to="/arrangements">
-                <h4>Daily Arrangements</h4>
-                <img src={blue} alt="daily" />
-              </Link>
-            </article>
-            <article>
-              <Link to="/events">
-                <h4>Special Events</h4>
-                <img src={purple} alt="events" />
-              </Link>
-            </article>
+      <div className="gallery">
+        <NavBarv2 />
+        <div className="gal-container">
+          {/* <h1>gallery</h1> */}
+          <div className="sub1">
+            <div className="overflow-1">
+              <img src={g4} alt="g4" />
+            </div>
+            {/* <h2>hand wrapped bouquets</h2> */}
+            <div className="overflow-2">
+              <img src={g6} alt="g6" />
+            </div>
           </div>
-        </section>
+          <div className="sub2">
+            <div className="overflow-3">
+              <img src={g3} alt="g3" />
+            </div>
+            {/*  <h2>vase arrangements</h2> */}
+            <div className="overflow-4">
+              <img src={g1} alt="g1" />
+            </div>
+          </div>
+          <div className="sub3">
+            <div className="overflow-5">
+              <img src={g5} alt="g5" />
+            </div>
+            {/*  <h2>special occasions</h2>*/}
+            <div className="overflow-6">
+              <img src={g2} alt="g2" />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

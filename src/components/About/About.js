@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "./About.scss";
 import orange from "../Images/orange.jpg";
+import NavBar from "../NavBar/NavBar";
 class About extends Component {
   render() {
     return (
       <div className="about-container">
+        <NavBar />
         <section>
           <h1>About</h1>
 
           <div className="mission">
-            <img src={orange} width="200" alt="" />
+            <img src={orange} alt="" />
             <article>
               I wanted to create a brand/service that would bring smiles to
               peoples face. Growing up, Id find myself always drawn to things

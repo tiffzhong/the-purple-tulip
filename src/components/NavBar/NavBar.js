@@ -28,18 +28,19 @@ class NavBar extends Component {
           <button onClick={this.toggle}>☰</button>
         </div>
         <ul className={this.state.toggle ? "show" : "hide"}>
-          <Link to="/about">
+          <Link to="/">
             <li>home</li>
+          </Link>
+          <Link to="/about">
+            <li>about</li>
           </Link>
           <Link to="/gallery">
             <li>gallery</li>
           </Link>
-          <Link to="/gallery">
+          <Link to="/services">
             <li>services</li>
           </Link>
-          <Link to="/shop">
-            <li>shop</li>
-          </Link>
+
           <Link to="/contact">
             <li>contact</li>
           </Link>
