@@ -22,7 +22,7 @@ class NavBarv2 extends Component {
     return (
       <div className="navbar2-container">
         <Link to="/">
-          <img src={logo} height="150" alt="logo" />
+          <img src={logo} height="120" alt="logo" />
         </Link>
         <div className="links">
           <button onClick={this.toggle}>☰</button>

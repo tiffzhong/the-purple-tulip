@@ -5,25 +5,34 @@
     margin: 20px;
     border-radius: 10px;
     padding: 10px;
-
-    // h1 {
-    //   font-size: 40px;
-    //   width: 100%;
-    //   text-align: center;
-    //   margin: 20px 0px;
-    // }
+    .center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
     .sub1 {
       display: flex;
+      position: relative;
+
       .overflow-1 {
         padding: 10px;
         width: 80em;
-        height: 30em;
+        height: 28em;
         position: relative;
         overflow: hidden;
-
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: all 0.4s ease-in-out 0s;
+        &:hover .center-text {
+          top: 50%;
+          left: 50%;
+          opacity: 1;
+        }
         img {
           width: 80em;
-          height: 30em;
+          height: 28em;
           object-fit: cover;
           max-width: 100%;
           z-index: 1;
@@ -33,79 +42,12 @@
       .overflow-2 {
         padding: 10px;
         width: 50em;
-        height: 30em;
+        height: 28em;
         position: relative;
         overflow: hidden;
         img {
           width: 50em;
-          height: 30em;
-          object-fit: cover;
-          max-width: 100%;
-          z-index: 1;
-          border-radius: 10px;
-        }
-      }
-    }
-    .sub2 {
-      display: flex;
-      .overflow-4 {
-        padding: 10px;
-        width: 80em;
-        height: 30em;
-        position: relative;
-        overflow: hidden;
-        img {
-          width: 80em;
-          height: 30em;
-          object-fit: cover;
-          max-width: 100%;
-          z-index: 1;
-          border-radius: 10px;
-        }
-      }
-      .overflow-3 {
-        padding: 10px;
-        width: 50em;
-        height: 30em;
-        position: relative;
-        overflow: hidden;
-        img {
-          width: 50em;
-          height: 30em;
-          object-fit: cover;
-          max-width: 100%;
-          z-index: 1;
-          border-radius: 10px;
-        }
-      }
-    }
-    .sub3 {
-      display: flex;
-      .overflow-5 {
-        padding: 10px;
-        width: 80em;
-        height: 30em;
-        position: relative;
-        overflow: hidden;
-        border-radius: 4px;
-        img {
-          width: 80em;
-          height: 30em;
-          object-fit: cover;
-          max-width: 100%;
-          z-index: 1;
-          border-radius: 4px;
-        }
-      }
-      .overflow-6 {
-        padding: 10px;
-        width: 50em;
-        height: 30em;
-        position: relative;
-        overflow: hidden;
-        img {
-          width: 50em;
-          height: 30em;
+          height: 28em;
           object-fit: cover;
           max-width: 100%;
           z-index: 1;

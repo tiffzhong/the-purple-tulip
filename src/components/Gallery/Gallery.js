@@ -21,28 +21,36 @@ class Gallery extends Component {
           <div className="sub1">
             <div className="overflow-1">
               <img src={g4} alt="g4" />
+              <div className="center-text">bouquets</div>
+              <div className="overlay" />
             </div>
             {/* <h2>hand wrapped bouquets</h2> */}
             <div className="overflow-2">
               <img src={g6} alt="g6" />
+              <div className="center-text">vase arrangements </div>
             </div>
           </div>
-          <div className="sub2">
-            <div className="overflow-3">
+
+          <div className="sub1">
+            <div className="overflow-2">
               <img src={g3} alt="g3" />
+              <div className="center-text">weddings</div>
             </div>
             {/*  <h2>vase arrangements</h2> */}
-            <div className="overflow-4">
+            <div className="overflow-1">
               <img src={g1} alt="g1" />
+              <div className="center-text">centerpieces</div>
             </div>
           </div>
-          <div className="sub3">
-            <div className="overflow-5">
+          <div className="sub1">
+            <div className="overflow-1">
               <img src={g5} alt="g5" />
+              <div className="center-text">prom</div>
             </div>
-            {/*  <h2>special occasions</h2>*/}
-            <div className="overflow-6">
+
+            <div className="overflow-2">
               <img src={g2} alt="g2" />
+              <div className="center-text">special occasions</div>
             </div>
           </div>
         </div>
