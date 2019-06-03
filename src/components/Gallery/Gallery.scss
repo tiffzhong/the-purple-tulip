@@ -5,13 +5,7 @@
     margin: 20px;
     border-radius: 10px;
     padding: 10px;
-    .center-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 1;
-    }
+
     .sub1 {
       display: flex;
       position: relative;
@@ -22,14 +16,45 @@
         height: 28em;
         position: relative;
         overflow: hidden;
-        background: rgba(0, 0, 0, 0.7);
-        opacity: 0;
-        transition: all 0.4s ease-in-out 0s;
-        &:hover .center-text {
+
+        .overlay {
+          background: rgba(0, 0, 0, 0.7);
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          opacity: 0;
+          transition: all 0.4s ease-in-out 0s;
+        }
+        &:hover .overlay {
+          opacity: 1;
+        }
+        .content-details {
+          top: 80%;
+          position: absolute;
+          text-align: center;
+          width: 100%;
+          opacity: 0;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s ease-in-out 0s;
+
+          h3 {
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+          }
+        }
+
+        &:hover .content-details {
           top: 50%;
           left: 50%;
           opacity: 1;
         }
+
         img {
           width: 80em;
           height: 28em;

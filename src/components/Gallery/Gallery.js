@@ -20,9 +20,11 @@ class Gallery extends Component {
           {/* <h1>gallery</h1> */}
           <div className="sub1">
             <div className="overflow-1">
-              <img src={g4} alt="g4" />
-              <div className="center-text">bouquets</div>
               <div className="overlay" />
+              <img src={g4} alt="g4" />
+              <div className="content-details">
+                <h3>bouquets</h3>
+              </div>
             </div>
             {/* <h2>hand wrapped bouquets</h2> */}
             <div className="overflow-2">
