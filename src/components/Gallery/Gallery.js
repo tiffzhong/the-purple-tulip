@@ -6,7 +6,8 @@ import g4 from "./gal4.jpg";
 import g5 from "./gal5.jpg";
 import g6 from "./gal6.jpg";
 import "./Gallery.scss";
-import NavBarv2 from "../NavBarv2/NavBarv2";
+import NavBarGallery from "../NavBarGallery/NavBarGallery";
+import { Link } from "react-router-dom";
 
 class Gallery extends Component {
   constructor() {
@@ -15,44 +16,40 @@ class Gallery extends Component {
   render() {
     return (
       <div className="gallery">
-        <NavBarv2 />
+        <NavBarGallery />
         <div className="gal-container">
-          {/* <h1>gallery</h1> */}
           <div className="sub1">
-            <div className="overflow-1">
+            <div className="content-1">
               <div className="overlay" />
               <img src={g4} alt="g4" />
               <div className="content-details">
-                <h3>bouquets</h3>
+                <Link to="/gallery/bouquets">hand wrapped bouquets</Link>
               </div>
             </div>
-            {/* <h2>hand wrapped bouquets</h2> */}
-            <div className="overflow-2">
+
+            <div className="content-2">
+              <div className="overlay" />
               <img src={g6} alt="g6" />
-              <div className="center-text">vase arrangements </div>
+              <div className="content-details">
+                <Link to="/gallery/vases">vase arrangements</Link>
+              </div>
             </div>
           </div>
 
           <div className="sub1">
-            <div className="overflow-2">
-              <img src={g3} alt="g3" />
-              <div className="center-text">weddings</div>
+            <div className="content-2">
+              <div className="overlay" />
+              <img src={g1} alt="g6" />
+              <div className="content-details">
+                <Link to="/gallery/occasions">weddings</Link>
+              </div>
             </div>
-            {/*  <h2>vase arrangements</h2> */}
-            <div className="overflow-1">
-              <img src={g1} alt="g1" />
-              <div className="center-text">centerpieces</div>
-            </div>
-          </div>
-          <div className="sub1">
-            <div className="overflow-1">
-              <img src={g5} alt="g5" />
-              <div className="center-text">prom</div>
-            </div>
-
-            <div className="overflow-2">
-              <img src={g2} alt="g2" />
-              <div className="center-text">special occasions</div>
+            <div className="content-1">
+              <div className="overlay" />
+              <img src={g2} alt="g4" />
+              <div className="content-details">
+                <Link to="/gallery/occasions">special occasions</Link>
+              </div>
             </div>
           </div>
         </div>

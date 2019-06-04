@@ -10,15 +10,16 @@
       display: flex;
       position: relative;
 
-      .overflow-1 {
-        padding: 10px;
+      .content-1 {
+        margin: 10px;
+        border-radius: 10px;
         width: 80em;
         height: 28em;
         position: relative;
         overflow: hidden;
 
         .overlay {
-          background: rgba(0, 0, 0, 0.7);
+          background: rgba(255, 255, 255, 0.3);
           position: absolute;
           height: 100%;
           width: 100%;
@@ -33,7 +34,8 @@
           opacity: 1;
         }
         .content-details {
-          top: 80%;
+          top: 50%;
+          left: 50%;
           position: absolute;
           text-align: center;
           width: 100%;
@@ -41,11 +43,16 @@
           transform: translate(-50%, -50%);
           transition: all 0.3s ease-in-out 0s;
 
-          h3 {
-            color: #fff;
+          a {
+            color: black;
+            font-size: 35px;
             font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+
+            text-decoration: none;
+            &:hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
           }
         }
 
@@ -64,12 +71,59 @@
           border-radius: 10px;
         }
       }
-      .overflow-2 {
-        padding: 10px;
+
+      .content-2 {
+        margin: 10px;
+        border-radius: 10px;
         width: 50em;
         height: 28em;
         position: relative;
         overflow: hidden;
+
+        .overlay {
+          background: rgba(255, 255, 255, 0.3);
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          opacity: 0;
+          transition: all 0.4s ease-in-out 0s;
+        }
+        &:hover .overlay {
+          opacity: 1;
+        }
+        .content-details {
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          text-align: center;
+          width: 100%;
+          opacity: 0;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s ease-in-out 0s;
+
+          a {
+            color: black;
+            font-size: 35px;
+            font-weight: 500;
+
+            text-decoration: none;
+            &:hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &:hover .content-details {
+          top: 50%;
+          left: 50%;
+          opacity: 1;
+        }
+
         img {
           width: 50em;
           height: 28em;

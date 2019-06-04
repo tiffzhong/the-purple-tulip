@@ -6,7 +6,7 @@ class About extends Component {
   render() {
     return (
       <div className="about-container">
-        <NavBar />
+        {/* <NavBar /> */}
         <section>
           <h1>About</h1>
 

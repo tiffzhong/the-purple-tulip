@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./NavBarv2.scss";
+import "./NavBarGallery.scss";
 import logo from "../Images/logo.png";
 
-class NavBarv2 extends Component {
+class NavBarGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,4 +52,4 @@ class NavBarv2 extends Component {
     );
   }
 }
-export default NavBarv2;
+export default NavBarGallery;

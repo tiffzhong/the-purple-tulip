@@ -13,7 +13,7 @@ function Confirmation(props) {
         </p>
         <br />
         <Link to="/gallery">Gallery</Link>
-        <Link to="/shop">Shop</Link>
+        <Link to="/services">Services</Link>
       </section>
     </div>
   );
