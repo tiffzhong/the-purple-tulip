@@ -1,9 +1,7 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 
-const { Consumer } = createContext({});
-
-class AdminView extends Component {
+class AdminHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,4 +43,4 @@ class AdminView extends Component {
   }
 }
 
-export default AdminView;
+export default AdminHome;

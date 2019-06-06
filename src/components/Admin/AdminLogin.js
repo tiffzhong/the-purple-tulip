@@ -7,7 +7,7 @@ const { Provider } = createContext({
   logout: () => {}
 });
 
-class Admin extends Component {
+class AdminLogin extends Component {
   constructor() {
     super();
 
@@ -136,4 +136,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default AdminLogin;

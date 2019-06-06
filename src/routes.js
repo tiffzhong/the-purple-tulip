@@ -15,8 +15,10 @@ import Delivery from "./components/Services/Delivery/Delivery";
 import Error from "./components/Error/Error";
 import Contact from "./components/Contact/Contact";
 import Confirmation from "./components/Confirmation/Confirmation";
-import Admin from "./components/Admin/Admin";
-import AdminView from "./components/Admin/AdminView";
+import AdminLogin from "./components/Admin/AdminLogin";
+import AdminHome from "./components/Admin/AdminHome";
+import AdminItemCreate from "./components/Admin/AdminItemCreate";
+import AdminItemEdit from "./components/Admin/AdminItemEdit";
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
@@ -32,8 +34,10 @@ export default (
     <Route path="/services/delivery" component={Delivery} />
 
     <Route path="/confirmation" component={Confirmation} />
-    <Route path="/admin" component={Admin} />
-    <Route path="/orders" component={AdminView} />
+    <Route exact path="/admin" component={AdminLogin} />
+    <Route exact path="/admin/home" component={AdminHome} />
+    <Route exact path="/admin/upload" component={AdminItemCreate} />
+    <Route exact path="/admin/item/:id" component={AdminItemEdit} />
     <Route component={Error} />
     <Route path="/contact" component={Contact} />
   </Switch>
