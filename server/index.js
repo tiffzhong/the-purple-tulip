@@ -25,6 +25,13 @@ app.use(
 const nmController = require("./controllers/nmController");
 const igController = require("./controllers/igController");
 const adminController = require("./controllers/adminController");
+const productController = require("./controllers/productController");
+//Product
+app.get("/api/products", productController.getProducts);
+app.post("/api/product", productController.createProduct);
+app.delete("/api/product/:id");
+app.put("/api/product/:id");
+
 //Nodemailer
 app.post("/api/email/order", nmController.newOrder);
 

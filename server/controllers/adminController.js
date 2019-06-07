@@ -48,11 +48,4 @@ module.exports = {
       })
       .catch(error => console.log(error, "error in getting inquires"));
   }
-  // ensureLoggedIn: (req, res, next) => {
-  //   if (req.session.user) {
-  //     next();
-  //   } else {
-  //     res.status(403).json({ message: "You are not authorized" });
-  //   }
-  // }
 };

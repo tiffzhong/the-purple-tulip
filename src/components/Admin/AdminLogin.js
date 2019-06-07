@@ -1,11 +1,6 @@
-import React, { Component, createContext } from "react";
+import React, { Component } from "react";
 import "./Admin.scss";
 import axios from "axios";
-
-const { Provider } = createContext({
-  user: null,
-  logout: () => {}
-});
 
 class AdminLogin extends Component {
   constructor() {
@@ -14,8 +9,7 @@ class AdminLogin extends Component {
     this.state = {
       user: null,
       showRegister: false,
-      message: null,
-      logout: () => this.logout()
+      message: null
     };
   }
   getMessage = error =>
@@ -39,7 +33,7 @@ class AdminLogin extends Component {
       })
       .catch(error => {
         this.setState({
-          message: "Something went wrong w register: " + error
+          message: this.getMessage(error)
         });
       });
   };
@@ -55,7 +49,7 @@ class AdminLogin extends Component {
       })
       .then(response => {
         this.setState({ user: response.data });
-        window.location.pathname = "/orders";
+        window.location.pathname = "/admin/home";
       })
       .catch(error => {
         this.setState({
@@ -72,7 +66,7 @@ class AdminLogin extends Component {
       })
       .catch(error => {
         this.setState({
-          message: "Something went wrong w logout: " + this.getMessage(error)
+          message: this.getMessage(error)
         });
       });
   };
@@ -88,50 +82,41 @@ class AdminLogin extends Component {
     );
 
     return (
-      <Provider value={this.state}>
-        <div className="admin-page">
-          {!user && (
-            <div className="admin-container">
-              <a
-                href="javascript:void(0)"
-                onClick={() => this.setState({ showRegister: false })}
-              >
-                Login
-              </a>{" "}
-              <a
-                href="javascript:void(0)"
-                onClick={() => this.setState({ showRegister: true })}
-              >
-                Register
-              </a>
-              <div className="login-or-register">
-                {showRegister && (
-                  <div>
-                    <h3>Register</h3>
-                    {inputFields}
-                    <button onClick={this.register}>Register</button>
-                  </div>
-                )}
-                {!showRegister && (
-                  <div>
-                    <h3>Log in</h3>
-                    {inputFields}
-                    <button onClick={this.login}>Log in</button>
-                  </div>
-                )}
-                {message}
-              </div>
+      <div className="admin-page">
+        {!user && (
+          <div className="admin-container">
+            <a
+              href="javascript:void(0)"
+              onClick={() => this.setState({ showRegister: false })}
+            >
+              Login
+            </a>{" "}
+            <a
+              href="javascript:void(0)"
+              onClick={() => this.setState({ showRegister: true })}
+            >
+              Register
+            </a>
+            <div className="login-or-register">
+              {showRegister && (
+                <div>
+                  <h3>Register</h3>
+                  {inputFields}
+                  <button onClick={this.register}>Register</button>
+                </div>
+              )}
+              {!showRegister && (
+                <div>
+                  <h3>Log in</h3>
+                  {inputFields}
+                  <button onClick={this.login}>Log in</button>
+                </div>
+              )}
+              {message}
             </div>
-            // ) : (
-            //   <div className="user-info">
-            //     <h2>Hello, Admin!</h2>
-            //     <h3>Your Inquiries</h3>
-
-            //     <button onClick={this.logout}>Log out</button>
-            //   </div>
-          )}
-        </div>
-      </Provider>
+          </div>
+        )}
+      </div>
     );
   }
 }
