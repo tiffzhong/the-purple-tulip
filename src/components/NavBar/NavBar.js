@@ -44,6 +44,9 @@ class NavBar extends Component {
           <Link to="/contact">
             <li>contact</li>
           </Link>
+          <Link to="/admin">
+            <li>temp</li>
+          </Link>
         </ul>
       </div>
     );

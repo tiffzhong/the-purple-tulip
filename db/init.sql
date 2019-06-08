@@ -11,11 +11,7 @@ details text
 
 select * from inquiries;
 
-create table admin (
-id serial primary key,
-username varchar(15) unique,
-password varchar(15)
-);
+
 
 create table products (
 product_id serial primary key,
@@ -31,3 +27,24 @@ insert into products (product_id, product_name, product_image, product_size, pro
 values(1, 'Yellow Bunch', 'https://i.pinimg.com/originals/3f/61/d1/3f61d17195dd78c7e44d8381c48f7de4.jpg', 'Medium', 'Vases', 'Yellow Bouquet with a mix of yellow and white roses', '60.00')
 
 select * from products;
+
+select * from admin;
+
+drop table admin;
+
+CREATE TABLE admin (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR UNIQUE,
+  password VARCHAR
+);
+
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+    "sess" json NOT NULL,
+    "expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+
+select * from "session";

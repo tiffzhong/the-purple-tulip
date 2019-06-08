@@ -5,6 +5,8 @@ const session = require("express-session");
 const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
+const connect = require("connect-pg-simple");
+app.use(bodyParser.json());
 
 massive(process.env.CONNECTION_STRING)
   .then(database => {
@@ -14,19 +16,25 @@ massive(process.env.CONNECTION_STRING)
     console.log("error w massive", error);
   });
 
-app.use(bodyParser.json());
 app.use(
   session({
-    secret: "098jkdfn3r9udsjszvwrp0",
+    store: new (connect(session))({
+      conString: process.env.CONNECTION_STRING
+    }),
+    secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
-    resave: false
+    resave: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7 * 2
+    }
   })
 );
 const nmController = require("./controllers/nmController");
 const igController = require("./controllers/igController");
 const adminController = require("./controllers/adminController");
 const productController = require("./controllers/productController");
-//Product
+
+//Items
 app.get("/api/products", productController.getProducts);
 app.post("/api/product", productController.createProduct);
 app.delete("/api/product/:id");
@@ -39,7 +47,7 @@ app.post("/api/email/order", nmController.newOrder);
 // app.get("/api/ig/getPictures", igController.getImages);
 
 //Admin
-app.get("/admin/user");
+app.get("/admin/user", adminController.getUser);
 app.post("/admin/register", adminController.register);
 app.post("/admin/login", adminController.login);
 app.post("/admin/logout", adminController.logout);

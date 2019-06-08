@@ -1,8 +1,10 @@
 module.exports = {
   getProducts: (req, res) => {
-    const db = req.app.get("db");
-    db.get_products()
+    const database = req.app.get("db");
+    database
+      .get_products()
       .then(products => {
+        console.log(products);
         res.status(200).send(products);
       })
       .catch(error => console.log("error in get products", error));

@@ -58,19 +58,6 @@ class AdminLogin extends Component {
       });
   };
 
-  logout = () => {
-    axios
-      .post("/admin/logout")
-      .then(response => {
-        this.setState({ user: null });
-      })
-      .catch(error => {
-        this.setState({
-          message: this.getMessage(error)
-        });
-      });
-  };
-
   render() {
     const { user, showRegister, message } = this.state;
 

@@ -39,7 +39,9 @@ module.exports = {
     req.session.destroy();
     res.status(200).send();
   },
-
+  getUser: (req, res) => {
+    res.json({ user: req.session.user });
+  },
   inquiries: (req, res) => {
     const db = req.app.get("db");
     db.get_inquiries()
