@@ -13,7 +13,7 @@ module.exports = {
         })
         .catch(error => {
           console.log("error", error);
-          res.status(500).json({ message: "Something bad happened! " });
+          res.status(500).json({ message: "Erorr in Registering" });
         });
     });
   },

@@ -39,6 +39,7 @@ app.post("/api/email/order", nmController.newOrder);
 // app.get("/api/ig/getPictures", igController.getImages);
 
 //Admin
+app.get("/admin/user");
 app.post("/admin/register", adminController.register);
 app.post("/admin/login", adminController.login);
 app.post("/admin/logout", adminController.logout);
