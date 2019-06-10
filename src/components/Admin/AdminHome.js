@@ -7,29 +7,34 @@ import Nav from "./AdminNav";
 class AdminHome extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: []
-    };
   }
 
   componentDidMount() {
-    this.getAllItems();
+    this.props.getItems();
   }
-  getAllItems = () => {
-    this.props.getItems().then(res => {
-      console.log(res);
-      return this.setState({ items: res.value });
-    });
-  };
 
   render() {
     console.log(this.props);
-    let { user, items } = this.props;
-    // console.log(this.state);
+    let { user } = this.props;
+
+    const allItems = this.props.items.map(item => (
+      <div>
+        {item.product_category}
+        {item.product_id}
+        {item.product_name}
+        <img src={item.product_image} alt="flowers" />
+        {item.product_size}
+        {item.product_description}
+        {item.product_price}
+      </div>
+    ));
     return (
       <>
         <Nav />
-        <div className="inquiry-container">Hello {user}</div>
+        <div className="inquiry-container">
+          Hello {user}
+          {allItems}
+        </div>
       </>
     );
   }
