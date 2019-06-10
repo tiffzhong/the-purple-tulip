@@ -62,14 +62,14 @@ class AdminLogin extends Component {
     const { user, showRegister, message } = this.state;
 
     const inputFields = (
-      <div>
-        Username: <input ref="username" /> Password:{" "}
-        <input type="password" ref="password" />{" "}
+      <div className="input-field">
+        Username: <input ref="username" /> Password:
+        <input type="password" ref="password" />
       </div>
     );
 
     return (
-      <div className="admin-page">
+      <div className="admin-login">
         {!user && (
           <div className="admin-container">
             <a
@@ -78,12 +78,12 @@ class AdminLogin extends Component {
             >
               Login
             </a>{" "}
-            <a
+            {/* <a
               href="javascript:void(0)"
               onClick={() => this.setState({ showRegister: true })}
             >
               Register
-            </a>
+            </a> */}
             <div className="login-or-register">
               {showRegister && (
                 <div>

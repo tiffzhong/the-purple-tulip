@@ -27,15 +27,14 @@ class AdminNav extends Component {
     // console.log(this.props);
     return (
       <>
-        <div>
-          <ul>
-            <Link to="/admin/home">home</Link>
-            <Link to="/admin/upload">upload item</Link>
+        <nav className="admin-nav">
+          <Link to="/admin/home">home</Link>
 
-            <Link to="/">visit website</Link>
-            <li onClick={() => this.logout()}>logout</li>
-          </ul>
-        </div>
+          <Link to="/">visit website</Link>
+          <a href="javascript:void(0)" onClick={() => this.logout()}>
+            logout
+          </a>
+        </nav>
       </>
     );
   }
