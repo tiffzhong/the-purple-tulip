@@ -94,7 +94,7 @@ class AdminLogin extends Component {
               )}
               {!showRegister && (
                 <div>
-                  <h3>Log in</h3>
+                  <h3>Admin Log In</h3>
                   {inputFields}
                   <button onClick={this.login}>Log in</button>
                 </div>

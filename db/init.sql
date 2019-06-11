@@ -16,11 +16,11 @@ select * from inquiries;
 create table products (
 product_id serial primary key,
 product_name text,
-product_image text,
-product_size text,
-product_category text,
-product_description text,
-product_price decimal
+  product_size text,
+  product_category text,
+  product_price text,
+  product_description text,
+product_image text
 );
 
 insert into products (product_id, product_name, product_image, product_size, product_category, product_description, product_price)

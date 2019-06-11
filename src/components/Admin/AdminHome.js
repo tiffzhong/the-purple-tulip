@@ -1,41 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getItems } from "../../dux/reducer";
+import { getItems, deleteItem } from "../../dux/reducer";
 import Nav1 from "./AdminNav";
-import { Tabs, Tab, Modal, Button } from "react-bootstrap";
+import { Tabs, Tab, Button } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
-
-class EditAndDeleteModal extends React.Component {
-  render() {
-    return (
-      <Modal
-        {...this.props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={this.props.onHide}>Save</Button>
-          <Button onClick={this.props.onHide}>Delete</Button>
-          <Button onClick={this.props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-}
+import EditAndDeleteModal from "./AdminItemEdit";
+import "./Admin.scss";
 
 class AdminHome extends Component {
   constructor(props) {
@@ -46,7 +16,9 @@ class AdminHome extends Component {
   componentDidMount() {
     this.props.getItems();
   }
-
+  clicked = product_id => {
+    this.props.deleteItem(product_id);
+  };
   render() {
     let modalClose = () => this.setState({ modalShow: false });
     let modalCloseCreate = () => this.setState({ modalShowCreate: false });
@@ -55,7 +27,10 @@ class AdminHome extends Component {
 
     const allItems = this.props.items.map(item => (
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">
+        <a
+          href="javascript:void(0)"
+          class="list-group-item list-group-item-action"
+        >
           {item.product_name}
           {item.product_category}
           {item.product_id}
@@ -67,9 +42,14 @@ class AdminHome extends Component {
             variant="info"
             onClick={() => this.setState({ modalShow: true })}
           >
-            Edit or Delete
+            Edit
           </Button>
-
+          <Button
+            variant="primary"
+            onClick={() => this.clicked(item.product_id)}
+          >
+            Delete
+          </Button>
           <EditAndDeleteModal show={this.state.modalShow} onHide={modalClose} />
         </a>
       </div>
@@ -138,5 +118,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getItems }
+  { getItems, deleteItem }
 )(AdminHome);

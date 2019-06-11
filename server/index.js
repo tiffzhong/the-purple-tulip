@@ -37,8 +37,8 @@ const productController = require("./controllers/productController");
 //Items
 app.get("/api/products", productController.getProducts);
 app.post("/api/product", productController.createProduct);
-app.delete("/api/product/:id");
-app.put("/api/product/:id");
+app.put("/api/product/:id", productController.updateProduct);
+app.delete("/api/product/:id", productController.deleteProduct);
 
 //Nodemailer
 app.post("/api/email/order", nmController.newOrder);

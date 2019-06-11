@@ -41,7 +41,7 @@ class AdminItemCreateModal extends Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Create New Item{" "}
+            Create New Item
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -65,6 +65,9 @@ class AdminItemCreateModal extends Component {
                 value={product_size}
                 onChange={event => this.handleChange(event)}
               >
+                <option value="" selected hidden>
+                  Select Size
+                </option>
                 <option value="xsmall">X-Small</option>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
@@ -79,6 +82,9 @@ class AdminItemCreateModal extends Component {
                 value={product_category}
                 onChange={event => this.handleChange(event)}
               >
+                <option value="" selected hidden>
+                  Select Category
+                </option>
                 <option value="bouquet">bouquet</option>
                 <option value="vase">vase</option>
                 <option value="wedding">wedding</option>
@@ -119,11 +125,11 @@ class AdminItemCreateModal extends Component {
             onClick={() => {
               createItem(
                 product_name,
-                product_image,
                 product_size,
                 product_category,
+                product_price,
                 product_description,
-                product_price
+                product_image
               );
             }}
           >

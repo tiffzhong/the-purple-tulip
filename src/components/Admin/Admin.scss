@@ -4,40 +4,6 @@
   height: 100vh;
   width: 100%;
 
-  //Admin Login
-  .admin-login {
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-
-    .admin-container {
-      border: 1px solid black;
-      border-radius: 10px;
-      width: 70%;
-      .login-or-register {
-        h3 {
-          font-size: 24px;
-          text-align: center;
-          padding: 10px;
-        }
-        button {
-          display: flex;
-          align-items: center;
-          margin: 0 auto;
-        }
-      }
-    }
-    .input-field {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 15px;
-      input {
-        margin-bottom: 10px;
-      }
-    }
-  }
-
   // Admin Navigation
   .admin-nav {
     background-color: tan;
@@ -106,6 +72,43 @@
       select {
         width: 100%;
       }
+    }
+  }
+}
+
+//Admin Login
+.admin-login {
+  font-family: "Quicksand", sans-serif;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+
+  .admin-container {
+    border-radius: 10px;
+    width: 70%;
+    .login-or-register {
+      h3 {
+        font-size: 24px;
+        text-align: center;
+        padding: 10px;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        width: 100px;
+        margin: 0 auto;
+      }
+    }
+  }
+  .input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    input {
+      margin-bottom: 10px;
     }
   }
 }
