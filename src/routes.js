@@ -35,9 +35,9 @@ export default (
 
     <Route path="/confirmation" component={Confirmation} />
     <Route exact path="/admin" component={AdminLogin} />
-    <Route exact path="/admin/home" component={AdminHome} />
-    <Route exact path="/admin/upload" component={AdminItemCreate} />
-    <Route exact path="/admin/item/:id" component={AdminItemEdit} />
+    <Route path="/admin/home" component={AdminHome} />
+    {/* <Route exact path="/admin/upload" component={AdminItemCreate} /> */}
+    <Route path="/admin/home/:id" component={AdminItemEdit} />
     <Route component={Error} />
     <Route path="/contact" component={Contact} />
   </Switch>

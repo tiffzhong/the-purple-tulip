@@ -3,6 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setUser, updateItem, getItem } from "../../dux/reducer";
 import "./Admin.scss";
+import "react-router-modal/css/react-router-modal.css";
 class EditAndDeleteModal extends Component {
   constructor(props) {
     super(props);
@@ -18,21 +19,27 @@ class EditAndDeleteModal extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  componentDidUpdate() {
-    if (this.props.match.params.product_id) {
-    }
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     product_name: this.props.product_item.product_name,
+  //     product_size: this.props.product_item.product_size,
+  //     product_category: this.props.product_item.product_category,
+  //     product_price: this.props.product_item.product_price,
+  //     product_description: this.props.product_item.product_description,
+  //     product_image: this.props.product_item.product_image
+  //   });
+  // }
   render() {
     console.log(this.props);
     const { updateItem } = this.props;
-    const {
-      product_name,
-      product_size,
-      product_category,
-      product_price,
-      product_description,
-      product_image
-    } = this.state;
+    // const {
+    //   product_name,
+    //   product_size,
+    //   product_category,
+    //   product_price,
+    //   product_description,
+    //   product_image
+    // } = this.state;
     // const { product_id } = this.props.item;
     return (
       <Modal
@@ -56,7 +63,7 @@ class EditAndDeleteModal extends Component {
               <input
                 name="product_name"
                 type="text"
-                value={product_name}
+                value={this.state.product_name}
                 onChange={event => this.handleChange(event)}
               />
             </div>
@@ -64,7 +71,7 @@ class EditAndDeleteModal extends Component {
               <h4>Item Size</h4>
               <select
                 name="product_size"
-                value={product_size}
+                value={this.state.product_size}
                 onChange={event => this.handleChange(event)}
               >
                 <option value="" selected hidden>
@@ -81,7 +88,7 @@ class EditAndDeleteModal extends Component {
               <h4>Category</h4>
               <select
                 name="product_category"
-                value={product_category}
+                value={this.state.product_category}
                 onChange={event => this.handleChange(event)}
               >
                 <option value="" selected hidden>
@@ -99,7 +106,7 @@ class EditAndDeleteModal extends Component {
               <input
                 name="product_price"
                 type="text"
-                value={product_price}
+                value={this.state.product_price}
                 onChange={event => this.handleChange(event)}
               />
             </div>
@@ -107,7 +114,7 @@ class EditAndDeleteModal extends Component {
               <h4>Description</h4>
               <textarea
                 name="product_description"
-                value={product_description}
+                value={this.state.product_description}
                 onChange={event => this.handleChange(event)}
               />
             </div>
@@ -116,7 +123,7 @@ class EditAndDeleteModal extends Component {
               <input
                 name="product_image"
                 type="text"
-                value={product_image}
+                value={this.state.product_image}
                 onChange={event => this.handleChange(event)}
               />
             </div>
@@ -126,6 +133,7 @@ class EditAndDeleteModal extends Component {
           <Button
             onClick={() =>
               updateItem(
+                this.props.product_item.product_id,
                 this.state.product_name,
                 this.state.product_size,
                 this.state.product_category,

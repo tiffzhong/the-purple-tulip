@@ -6,7 +6,9 @@ import { Tabs, Tab, Button } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
 import EditAndDeleteModal from "./AdminItemEdit";
 import "./Admin.scss";
-
+import { Link } from "react-router-dom";
+import { ModalRoute, ModalContainer } from "react-router-modal";
+import "react-router-modal/css/react-router-modal.css";
 class AdminHome extends Component {
   constructor(props) {
     super(props);
@@ -19,41 +21,49 @@ class AdminHome extends Component {
   clicked = product_id => {
     this.props.deleteItem(product_id);
   };
+
   render() {
     let modalClose = () => this.setState({ modalShow: false });
     let modalCloseCreate = () => this.setState({ modalShowCreate: false });
     console.log(this.props);
     let { user } = this.props;
 
-    const allItems = this.props.items.map(item => (
-      <div class="list-group">
-        <a
-          href="javascript:void(0)"
-          class="list-group-item list-group-item-action"
-        >
-          {item.product_name}
-          {item.product_category}
-          {item.product_id}
-          {item.product_size}
-          {item.product_description}
-          {item.product_price}
+    const allItems =
+      this.props.items.length > 0 &&
+      this.props.items.map(item => (
+        <div class="list-group">
+          <a
+            href="javascript:void(0)"
+            class="list-group-item list-group-item-action"
+          >
+            {item.product_name}
+            {item.product_size}
+            {item.product_category}
+            {item.product_price}
+            {item.product_description}
 
-          <Button
-            variant="info"
-            onClick={() => this.setState({ modalShow: true })}
-          >
-            Edit
-          </Button>
-          <Button
-            variant="primary"
-            onClick={() => this.clicked(item.product_id)}
-          >
-            Delete
-          </Button>
-          <EditAndDeleteModal show={this.state.modalShow} onHide={modalClose} />
-        </a>
-      </div>
-    ));
+            {/* <EditAndDeleteModal
+              show={this.state.modalShow}
+              onHide={modalClose}
+              product_item={item}
+            /> */}
+
+            <Button
+              variant="primary"
+              onClick={() => this.clicked(item.product_id)}
+            >
+              Delete
+            </Button>
+
+            <Link to={`/admin/home/${item.product_id}`}>edit</Link>
+            <ModalRoute
+              component={EditAndDeleteModal}
+              path={`/admin/home/${item.product_id}`}
+            />
+            <ModalContainer />
+          </a>
+        </div>
+      ));
     return (
       <div className="admin-layout">
         <Nav1 />
