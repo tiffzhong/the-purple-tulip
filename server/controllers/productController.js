@@ -42,9 +42,9 @@ module.exports = {
       product_description,
       product_image
     } = req.body;
-    let { product_id } = req.params;
+    let { id } = req.params;
     db.update_product([
-      product_id,
+      id,
       product_name,
       product_size,
       product_category,
@@ -58,12 +58,12 @@ module.exports = {
 
   deleteProduct: (req, res) => {
     const db = req.app.get("db");
-    console.log(req.params);
+    console.log(req.params.id);
     let { id } = req.params;
     db.delete_product(id)
       .then(() => {
         res.status(200).send();
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log("error in delete", error));
   }
 };

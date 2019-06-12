@@ -19,7 +19,10 @@ class EditAndDeleteModal extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  // componentDidMount() {
+  combine = () => {
+    this.props.onHide();
+    this.props.redirect();
+  }; // componentDidMount() {
   //   this.setState({
   //     product_name: this.props.product_item.product_name,
   //     product_size: this.props.product_item.product_size,
@@ -40,7 +43,7 @@ class EditAndDeleteModal extends Component {
     //   product_description,
     //   product_image
     // } = this.state;
-    // const { product_id } = this.props.item;
+    // const { id } = this.props.item;
     return (
       <Modal
         {...this.props}
@@ -133,7 +136,7 @@ class EditAndDeleteModal extends Component {
           <Button
             onClick={() =>
               updateItem(
-                this.props.product_item.product_id,
+                this.props.product_item.id,
                 this.state.product_name,
                 this.state.product_size,
                 this.state.product_category,
@@ -145,7 +148,7 @@ class EditAndDeleteModal extends Component {
           >
             Save
           </Button>
-          <Button onClick={this.props.onHide}>Close</Button>
+          <Button onClick={this.combine}>Close</Button>
         </Modal.Footer>
       </Modal>
     );

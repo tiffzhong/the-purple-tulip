@@ -17,7 +17,7 @@ import Contact from "./components/Contact/Contact";
 import Confirmation from "./components/Confirmation/Confirmation";
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminHome from "./components/Admin/AdminHome";
-import AdminItemCreate from "./components/Admin/AdminItemCreate";
+
 import AdminItemEdit from "./components/Admin/AdminItemEdit";
 export default (
   <Switch>
@@ -36,8 +36,8 @@ export default (
     <Route path="/confirmation" component={Confirmation} />
     <Route exact path="/admin" component={AdminLogin} />
     <Route path="/admin/home" component={AdminHome} />
-    {/* <Route exact path="/admin/upload" component={AdminItemCreate} /> */}
     <Route path="/admin/home/:id" component={AdminItemEdit} />
+
     <Route component={Error} />
     <Route path="/contact" component={Contact} />
   </Switch>

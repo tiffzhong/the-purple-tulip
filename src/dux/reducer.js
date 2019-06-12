@@ -84,7 +84,7 @@ export function createItem(
 }
 
 export function updateItem(
-  product_id,
+  id,
   product_name,
   product_size,
   product_category,
@@ -95,7 +95,7 @@ export function updateItem(
   return {
     type: UPDATE_ITEM,
     payload: axios
-      .put(`/api/product/${product_id}`, {
+      .put(`/api/product/${id}`, {
         product_name,
         product_size,
         product_category,
@@ -108,11 +108,11 @@ export function updateItem(
   };
 }
 
-export function deleteItem(product_id) {
+export function deleteItem(id) {
   return {
     type: DELETE_ITEM,
     payload: axios
-      .delete(`/api/product/${product_id}`)
+      .delete(`/api/product/${id}`)
       .then(() => console.log("deleteItem worked"))
       .catch(err => console.log("error in deleteItem", err))
   };

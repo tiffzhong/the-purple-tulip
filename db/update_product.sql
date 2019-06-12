@@ -5,4 +5,4 @@ product_name = $2,
   product_price= $5,
   product_description= $6,
   product_image= $7
-where product_id = $1
+where id = $1

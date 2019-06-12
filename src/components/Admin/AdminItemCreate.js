@@ -21,6 +21,17 @@ class AdminItemCreateModal extends Component {
   onSubmit(e) {
     e.preventDefault();
   }
+  // combine = () => {
+  //   this.props.createItem(
+  //     product_name,
+  //     product_size,
+  //     product_category,
+  //     product_price,
+  //     product_description,
+  //     product_image
+  //   );
+
+  // };
 
   render() {
     const {
@@ -131,6 +142,9 @@ class AdminItemCreateModal extends Component {
                 product_description,
                 product_image
               );
+
+              this.props.onHide();
+              window.location.reload();
             }}
           >
             Save
