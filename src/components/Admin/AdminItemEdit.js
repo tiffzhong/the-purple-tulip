@@ -19,6 +19,7 @@ class EditAndDeleteModal extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
   combine = () => {
     this.props.onHide();
     this.props.redirect();

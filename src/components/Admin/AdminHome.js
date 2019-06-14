@@ -6,9 +6,41 @@ import { Tabs, Tab, Button } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
 import EditAndDeleteModal from "./AdminItemEdit";
 import "./Admin.scss";
-import { Link } from "react-router-dom";
-import { ModalRoute, ModalContainer } from "react-router-modal";
-import "react-router-modal/css/react-router-modal.css";
+import { Link, Switch, Route, Router } from "react-router-dom";
+
+class ModalSwitch extends Component {
+  previousLocation = this.props.location;
+
+  componentWillUpdate(nextProps) {
+    let { location } = this.props;
+    if (
+      nextProps.history.action !== "POP" &&
+      (!location.state || !location.state.modal)
+    ) {
+      this.previousLocation = this.props.location;
+    }
+  }
+  render() {
+    let { location } = this.props;
+
+    let isModal = !!(
+      location.state &&
+      location.state.modal &&
+      this.previousLocation !== location
+    ); // not initial render
+
+    return (
+      <div>
+        <Switch location={isModal ? this.previousLocation : location}>
+          <Route path="/admin/home/:id" component={EditAndDeleteModal} />
+        </Switch>
+        {isModal ? (
+          <Route path="/admin/home/:id" component={EditAndDeleteModal} />
+        ) : null}
+      </div>
+    );
+  }
+}
 
 class AdminHome extends Component {
   constructor(props) {
@@ -53,12 +85,7 @@ class AdminHome extends Component {
             >
               Edit
             </Link>
-            <ModalRoute
-              component={EditAndDeleteModal}
-              path={`/admin/home/${item.id}`}
-              className="test-modal test-modal-bar"
-            />
-            <ModalContainer show={this.state.modalShow} />
+
             <EditAndDeleteModal
               show={this.state.modalShow}
               onHide={modalClose}
