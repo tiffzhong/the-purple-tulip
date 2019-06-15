@@ -4,7 +4,6 @@ module.exports = {
     database
       .get_products()
       .then(products => {
-        console.log(products);
         res.status(200).send(products);
       })
       .catch(error => console.log("error in get products", error));
@@ -72,7 +71,6 @@ module.exports = {
     let { id } = req.params;
     db.get_product(id)
       .then(product => {
-        console.log(product);
         res.status(200).send(product[0]);
       })
       .catch(err => console.log(err));

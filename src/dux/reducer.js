@@ -3,7 +3,8 @@ import axios from "axios";
 const INITIAL_STATE = {
   user: null,
   items: [],
-  item: []
+  item: [],
+  inqs: []
 };
 
 const SET_USER = "SET_USER";
@@ -13,6 +14,7 @@ const CREATE_ITEM = "CREATE_ITEM";
 const UPDATE_ITEM = "UPDATE_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";
 
+const GET_INQURIES = "GET_INQURIES";
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SET_USER:
@@ -27,7 +29,8 @@ export default function reducer(state = INITIAL_STATE, action) {
       return { ...state };
     case `${DELETE_ITEM}_FULFILLED`:
       return { ...state };
-
+    case `${GET_INQURIES}_FULFILLED`:
+      return { ...state, inqs: action.payload };
     default:
       return { ...state };
   }
@@ -46,7 +49,7 @@ export function getItems() {
     payload: axios
       .get("/api/products")
       .then(res => {
-        console.log(res.data, "res.data");
+        // console.log(res.data, "res.data");
         return res.data;
       })
       .catch(error => console.log("error in getItems", error))
@@ -115,5 +118,17 @@ export function deleteItem(id) {
       .delete(`/api/product/${id}`)
       .then(() => console.log("deleteItem worked"))
       .catch(err => console.log("error in deleteItem", err))
+  };
+}
+
+export function getInqs() {
+  return {
+    type: GET_INQURIES,
+    payload: axios
+      .get("/admin/inquiries")
+      .then(res => {
+        return res.data;
+      })
+      .catch(error => console.log("error in getItems", error))
   };
 }

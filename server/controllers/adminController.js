@@ -42,7 +42,7 @@ module.exports = {
   getUser: (req, res) => {
     res.json({ user: req.session.user });
   },
-  inquiries: (req, res) => {
+  getInquiries: (req, res) => {
     const db = req.app.get("db");
     db.get_inquiries()
       .then(inq => {

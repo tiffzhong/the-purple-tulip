@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setUser, getItems } from "../../dux/reducer";
+import { setUser, getItems, getInqs } from "../../dux/reducer";
 import Nav1 from "./AdminNav";
 import {
   Tabs,
@@ -8,7 +8,8 @@ import {
   Button,
   Card,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
+  Table
 } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
 import "./Admin.scss";
@@ -32,6 +33,7 @@ class AdminHome extends Component {
       }
     });
     this.props.getItems();
+    this.props.getInqs();
   }
 
   redirect = () => {
@@ -39,6 +41,7 @@ class AdminHome extends Component {
   };
 
   render() {
+    console.log(this.props);
     let modalCloseCreate = () => this.setState({ modalShowCreate: false });
 
     let { user } = this.props;
@@ -66,6 +69,37 @@ class AdminHome extends Component {
             <Link to={`/admin/item/${item.id}`}>Edit</Link>
           </ListGroup>
         </Card>
+      ));
+
+    const allInqs =
+      this.props.inqs.length > 0 &&
+      this.props.inqs.map(inq => (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Reason</th>
+              <th>Reason</th>
+              <th>Reason</th>
+              <th>Reason</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{inq.inquiry_id}</td>
+              <td>{inq.fullname}</td>
+              <td>{inq.email}</td>
+              <td>{inq.inquiry}</td>
+              <td>{inq.date}</td>
+              <td>{inq.email}</td>
+              <td>{inq.location}</td>
+              <td>{inq.details}</td>
+            </tr>
+          </tbody>
+        </Table>
       ));
     return (
       <>
@@ -97,24 +131,7 @@ class AdminHome extends Component {
                   <div className="item-container">{allItems}</div>
                 </Tab>
                 <Tab eventKey="profile" title="Inquries">
-                  Inquries
-                  <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                      Cras justo odio
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                      Dapibus ac facilisis in
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                      Morbi leo risus
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                      Porta ac consectetur ac
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                      Vestibulum at eros
-                    </a>
-                  </div>
+                  <div> {allInqs}</div>
                 </Tab>
                 <Tab eventKey="contact" title="Wedding Inquries">
                   Wedding Inquries
@@ -132,14 +149,15 @@ class AdminHome extends Component {
   }
 }
 const mapStateToProps = state => {
-  let { user, items } = state;
+  let { user, items, inqs } = state;
   return {
     user,
-    items
+    items,
+    inqs
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getItems, setUser }
+  { getItems, setUser, getInqs }
 )(AdminHome);
