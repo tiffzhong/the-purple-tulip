@@ -35,7 +35,7 @@ export default (
     <Route exact path="/admin" component={AdminLogin} />
     <Route path="/admin/home" component={AdminHome} />
     <Route path="/admin/item/:id" component={AdminItemEdit} />
-    <Route component={Error} />
     <Route path="/contact" component={Contact} />
+    <Route component={Error} />
   </Switch>
 );

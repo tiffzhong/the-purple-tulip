@@ -1,7 +1,7 @@
 .admin-layout {
   font-family: "Quicksand", sans-serif;
-  background-color: lightgray;
-  height: 100vh;
+  background-color: #f6f7f5;
+  height: 100%;
   width: 100%;
 
   // Admin Navigation
@@ -34,6 +34,46 @@
       font-size: 20px;
     }
   }
+  .item-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    .card {
+      margin: 5px;
+    }
+    .card-title {
+      margin: 0;
+    }
+    .buttons {
+      padding: 5px;
+      display: flex;
+      // flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        border-radius: 5px;
+        width: 100px;
+        height: 35px;
+        background-color: #c8bfdb;
+      }
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      width: 100px;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
   .inquiry-container {
     display: flex;
     flex-direction: column;
@@ -41,13 +81,20 @@
     align-items: center;
     margin: 0 auto;
 
-    nav.nav-tabs {
-      // display: inherit;
-      // align-self: baseline;
-      position: relative;
-      // left: 50px;
+    .nav-tabs {
+      padding-bottom: 2px;
+      border-bottom: 1px black solid;
+      width: 80%;
     }
   }
+}
+
+.error-admin {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 //Create Form Modal

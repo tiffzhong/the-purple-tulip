@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import { setUser, updateItem, getItem } from "../../dux/reducer";
+import { setUser, updateItem, getItem, deleteItem } from "../../dux/reducer";
 import "./Admin.scss";
 import "react-router-modal/css/react-router-modal.css";
 import axios from "axios";
@@ -21,7 +21,10 @@ class EditAndDeleteModal extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
+  clicked = id => {
+    this.props.deleteItem(id);
+    window.location.pathname = "/admin/home";
+  };
   componentDidMount() {
     if (this.props.match.params.id) {
       axios
@@ -150,6 +153,12 @@ class EditAndDeleteModal extends Component {
           >
             Save
           </Button>
+          <Button
+            variant="primary"
+            onClick={() => this.clicked(this.props.item.id)}
+          >
+            Delete
+          </Button>
         </Link>
       </>
     );
@@ -166,5 +175,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { setUser, updateItem, getItem }
+  { setUser, updateItem, getItem, deleteItem }
 )(EditAndDeleteModal);
