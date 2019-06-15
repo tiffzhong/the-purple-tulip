@@ -1,12 +1,14 @@
 create table inquiries (
 id serial primary key,
+contactDate TIMESTAMP,
 inquiry_id text,
 fullname varchar(60) not null,
 email text not null,
 inquiry text,
 date text,
 location text,
-details text
+details text,
+checked BOOLEAN
 )
 
 select * from inquiries;

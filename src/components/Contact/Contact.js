@@ -6,12 +6,14 @@ class Contact extends Component {
   constructor() {
     super();
     this.state = {
+      contactDate: new Date(),
       fullname: "",
       email: "",
       inquiry: "",
       date: "",
       location: "",
-      details: ""
+      details: "",
+      checked: false
     };
   }
   handleChange = event => {
@@ -22,15 +24,26 @@ class Contact extends Component {
 
   order = () => {
     console.log("order is running");
-    const { fullname, email, inquiry, date, location, details } = this.state;
+    const {
+      contactDate,
+      fullname,
+      email,
+      inquiry,
+      date,
+      location,
+      details,
+      checked
+    } = this.state;
     axios
       .post("/api/email/order", {
+        contactDate,
         fullname,
         email,
         inquiry,
         date,
         location,
-        details
+        details,
+        checked
       })
       .then((window.location.pathname = "/confirmation"))
       .catch(error => error, "error in order method");

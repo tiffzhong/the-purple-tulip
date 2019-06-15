@@ -3,12 +3,31 @@ const uniqid = require("uniqid");
 
 module.exports = {
   newOrder: (req, res) => {
-    const { fullname, email, inquiry, date, location, details } = req.body;
+    const {
+      contactDate,
+      fullname,
+      email,
+      inquiry,
+      date,
+      location,
+      details,
+      checked
+    } = req.body;
     const database = req.app.get("db");
-    let id = uniqid("inq-");
+    let id = uniqid("i-");
 
     database
-      .order_inquiry([id, fullname, email, inquiry, date, location, details])
+      .order_inquiry([
+        id,
+        contactDate,
+        fullname,
+        email,
+        inquiry,
+        date,
+        location,
+        details,
+        checked
+      ])
       .then(response => {
         console.log(response);
         res.status(200).send();
@@ -17,7 +36,8 @@ module.exports = {
         console.log("error in newOrder", e);
       });
 
-    let newFullName = fullname,
+    let newContactDate = contactDate,
+      newFullName = fullname,
       inquiry_id = id,
       newEmail = email,
       newInquiry = inquiry,
@@ -28,6 +48,7 @@ module.exports = {
       <header style="background: #A894C2; text-align: center;  height: 30px; font-family:arial;"><h1>The Purple Tulip: New Inquiry</h1></header>
       <div style="font-family:arial; "><p style= "font-size: 18px;">You have a new inquiry: </p>
       <ul style="list-style-type:none; font-size: 16px;">
+        <li>Date: ${newContactDate}</li> <br />
         <li>Inquiry ID: ${inquiry_id}</li> <br />
         <li>Name: ${newFullName}</li><br />
         <li>Email: ${newEmail}</li><br />
