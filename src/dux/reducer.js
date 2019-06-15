@@ -19,7 +19,7 @@ export default function reducer(state = INITIAL_STATE, action) {
       return { ...state, user: action.payload };
     case `${GET_ITEMS}_FULFILLED`:
       return { ...state, items: action.payload };
-    case `${GET_ITEM}_FULFILLED`:
+    case GET_ITEM:
       return { ...state, item: action.payload };
     case `${CREATE_ITEM}_FULFILLED`:
       return { ...state };

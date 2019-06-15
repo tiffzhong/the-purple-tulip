@@ -39,6 +39,7 @@ app.get("/api/products", productController.getProducts);
 app.post("/api/product", productController.createProduct);
 app.put("/api/product/:id", productController.updateProduct);
 app.delete("/api/product/:id", productController.deleteProduct);
+app.get("/api/product/:id", productController.getProduct);
 
 //Nodemailer
 app.post("/api/email/order", nmController.newOrder);

@@ -65,5 +65,16 @@ module.exports = {
         res.status(200).send();
       })
       .catch(error => console.log("error in delete", error));
+  },
+
+  getProduct: (req, res) => {
+    const db = req.app.get("db");
+    let { id } = req.params;
+    db.get_product(id)
+      .then(product => {
+        console.log(product);
+        res.status(200).send(product[0]);
+      })
+      .catch(err => console.log(err));
   }
 };

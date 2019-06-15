@@ -4,48 +4,17 @@ import { getItems, deleteItem } from "../../dux/reducer";
 import Nav1 from "./AdminNav";
 import { Tabs, Tab, Button } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
-import EditAndDeleteModal from "./AdminItemEdit";
 import "./Admin.scss";
-import { Link, Switch, Route, Router } from "react-router-dom";
-
-class ModalSwitch extends Component {
-  previousLocation = this.props.location;
-
-  componentWillUpdate(nextProps) {
-    let { location } = this.props;
-    if (
-      nextProps.history.action !== "POP" &&
-      (!location.state || !location.state.modal)
-    ) {
-      this.previousLocation = this.props.location;
-    }
-  }
-  render() {
-    let { location } = this.props;
-
-    let isModal = !!(
-      location.state &&
-      location.state.modal &&
-      this.previousLocation !== location
-    ); // not initial render
-
-    return (
-      <div>
-        <Switch location={isModal ? this.previousLocation : location}>
-          <Route path="/admin/home/:id" component={EditAndDeleteModal} />
-        </Switch>
-        {isModal ? (
-          <Route path="/admin/home/:id" component={EditAndDeleteModal} />
-        ) : null}
-      </div>
-    );
-  }
-}
+import { Link } from "react-router-dom";
 
 class AdminHome extends Component {
+  previousLocation = this.props.location;
   constructor(props) {
     super(props);
-    this.state = { modalShow: false, modalShowCreate: false };
+    this.state = {
+      modalShow: false,
+      modalShowCreate: false
+    };
   }
 
   componentDidMount() {
@@ -58,8 +27,8 @@ class AdminHome extends Component {
   redirect = () => {
     window.location.pathname = "/admin/home";
   };
+
   render() {
-    let modalClose = () => this.setState({ modalShow: false });
     let modalCloseCreate = () => this.setState({ modalShowCreate: false });
     console.log(this.props);
     let { user } = this.props;
@@ -79,20 +48,24 @@ class AdminHome extends Component {
             {item.product_price}
             {item.product_description}
 
-            <Link
-              to={`/admin/home/${item.id}`}
-              onClick={() => this.setState({ modalShow: true })}
-            >
-              Edit
-            </Link>
-
-            <EditAndDeleteModal
+            <Link to={`/admin/item/${item.id}`}>Edit</Link>
+            {/* <ModalRoute
+              path={`/admin/home/${item.id}`}
+              parentPath={"/admin/home"}
+              component={EditAndDeleteModal}
+            /> */}
+            {/* <EditAndDeleteModal
               show={this.state.modalShow}
               onHide={modalClose}
-              product_item={item}
               redirect={this.redirect}
-            />
-
+              id={item.id}
+              product_name={item.product_name}
+              product_size={item.product_size}
+              product_category={item.product_category}
+              product_price={item.product_price}
+              product_description={item.product_description}
+              product_image={item.product_image}
+            /> */}
             <Button variant="primary" onClick={() => this.clicked(item.id)}>
               Delete
             </Button>

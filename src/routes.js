@@ -19,25 +19,22 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import AdminHome from "./components/Admin/AdminHome";
 
 import AdminItemEdit from "./components/Admin/AdminItemEdit";
+
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
     <Route path="/about" component={About} />
-
     <Route exact path="/gallery" component={Gallery} />
     <Route exact path="/gallery/occasions" component={GalOccasion} />
     <Route exact path="/gallery/bouquets" component={GalBouquet} />
     <Route exact path="/gallery/vases" component={GalVase} />
-
     <Route path="/services" component={Services} />
     <Route path="/services/weddingconsultation" component={WeddingConsult} />
     <Route path="/services/delivery" component={Delivery} />
-
     <Route path="/confirmation" component={Confirmation} />
     <Route exact path="/admin" component={AdminLogin} />
     <Route path="/admin/home" component={AdminHome} />
-    <Route path="/admin/home/:id" component={AdminItemEdit} />
-
+    <Route path="/admin/item/:id" component={AdminItemEdit} />
     <Route component={Error} />
     <Route path="/contact" component={Contact} />
   </Switch>
