@@ -29,8 +29,7 @@ module.exports = {
         checked
       ])
       .then(response => {
-        console.log(response);
-        res.status(200).send();
+        response.status(200).send();
       })
       .catch(e => {
         console.log("error in newOrder", e);

@@ -118,7 +118,7 @@ class Contact extends Component {
           </form>
         </section>
         <div className="text-container">
-          email:{" "}
+          email:
           <a href="mailto:ThePurpleTulip.inc@gmail.com">
             ThePurpleTulip.inc@gmail.com
           </a>{" "}
