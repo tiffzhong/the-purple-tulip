@@ -4,7 +4,7 @@ const uniqid = require("uniqid");
 module.exports = {
   newOrder: (req, res) => {
     const {
-      contactDate,
+      contactdate,
       fullname,
       email,
       inquiry,
@@ -18,8 +18,8 @@ module.exports = {
 
     database
       .order_inquiry([
+        contactdate,
         id,
-        contactDate,
         fullname,
         email,
         inquiry,
@@ -36,7 +36,7 @@ module.exports = {
         console.log("error in newOrder", e);
       });
 
-    let newContactDate = contactDate,
+    let newContactDate = contactdate,
       newFullName = fullname,
       inquiry_id = id,
       newEmail = email,

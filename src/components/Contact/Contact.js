@@ -6,7 +6,7 @@ class Contact extends Component {
   constructor() {
     super();
     this.state = {
-      contactDate: new Date(),
+      contactdate: new Date(),
       fullname: "",
       email: "",
       inquiry: "",
@@ -25,7 +25,7 @@ class Contact extends Component {
   order = () => {
     console.log("order is running");
     const {
-      contactDate,
+      contactdate,
       fullname,
       email,
       inquiry,
@@ -36,7 +36,7 @@ class Contact extends Component {
     } = this.state;
     axios
       .post("/api/email/order", {
-        contactDate,
+        contactdate,
         fullname,
         email,
         inquiry,
@@ -54,6 +54,7 @@ class Contact extends Component {
   };
   render() {
     const { fullname, email, inquiry, date, location, details } = this.state;
+    console.log(this.state);
     return (
       <div className="contact-container">
         <section>

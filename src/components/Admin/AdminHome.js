@@ -74,32 +74,20 @@ class AdminHome extends Component {
     const allInqs =
       this.props.inqs.length > 0 &&
       this.props.inqs.map(inq => (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Reason</th>
-              <th>Reason</th>
-              <th>Reason</th>
-              <th>Reason</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{inq.inquiry_id}</td>
-              <td>{inq.fullname}</td>
-              <td>{inq.email}</td>
-              <td>{inq.inquiry}</td>
-              <td>{inq.date}</td>
-              <td>{inq.email}</td>
-              <td>{inq.location}</td>
-              <td>{inq.details}</td>
-            </tr>
-          </tbody>
-        </Table>
+        <tbody>
+          <tr>
+            <td>
+              <input type="checkbox" name="checked" value="checked" />
+            </td>
+            <td>{inq.contactdate}</td>
+            <td>{inq.inquiry_id}</td>
+            <td>{inq.fullname}</td>
+            <td>{inq.email}</td>
+            <td>{inq.inquiry}</td>
+            <td>{inq.date}</td>
+            <td>{inq.location}</td>
+          </tr>
+        </tbody>
       ));
     return (
       <>
@@ -131,7 +119,22 @@ class AdminHome extends Component {
                   <div className="item-container">{allItems}</div>
                 </Tab>
                 <Tab eventKey="profile" title="Inquries">
-                  <div> {allInqs}</div>
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>/</th>
+
+                        <th>Contact Date</th>
+                        <th>Inquiry ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Reason</th>
+                        <th>Event Date</th>
+                        <th>Location</th>
+                      </tr>
+                    </thead>
+                    {allInqs}
+                  </Table>
                 </Tab>
                 <Tab eventKey="contact" title="Wedding Inquries">
                   Wedding Inquries

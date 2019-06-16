@@ -1,6 +1,6 @@
 create table inquiries (
 id serial primary key,
-contactDate TIMESTAMP,
+contactdate TIMESTAMP,
 inquiry_id text,
 fullname varchar(60) not null,
 email text not null,
