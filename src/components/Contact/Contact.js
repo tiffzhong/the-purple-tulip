@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./Contact.scss";
 import axios from "axios";
-
+import moment from "moment";
 class Contact extends Component {
   constructor() {
     super();
     this.state = {
-      contactdate: new Date(),
+      contactdate: moment().format("L"),
       fullname: "",
       email: "",
       inquiry: "",

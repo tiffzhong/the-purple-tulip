@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   user: null,
   items: [],
   item: [],
-  inqs: []
+  inqs: [],
+  inq: []
 };
 
 const SET_USER = "SET_USER";
@@ -15,6 +16,7 @@ const UPDATE_ITEM = "UPDATE_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";
 
 const GET_INQURIES = "GET_INQURIES";
+const GET_INQUIRY = "GET_INQUIRY";
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SET_USER:
@@ -31,6 +33,8 @@ export default function reducer(state = INITIAL_STATE, action) {
       return { ...state };
     case `${GET_INQURIES}_FULFILLED`:
       return { ...state, inqs: action.payload };
+    case GET_INQUIRY:
+      return { ...state, inq: action.payload };
     default:
       return { ...state };
   }
@@ -130,5 +134,12 @@ export function getInqs() {
         return res.data;
       })
       .catch(error => console.log("error in getItems", error))
+  };
+}
+
+export function getInq(id) {
+  return {
+    type: GET_INQUIRY,
+    payload: id
   };
 }

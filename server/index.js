@@ -52,7 +52,10 @@ app.get("/admin/user", adminController.getUser);
 app.post("/admin/register", adminController.register);
 app.post("/admin/login", adminController.login);
 app.post("/admin/logout", adminController.logout);
+
+//inquiry
 app.get("/admin/inquiries", adminController.getInquiries);
+app.get("/admin/inquiry/:id", nmController.getInquiry);
 
 const PORT = 4000;
 app.listen(PORT, () => {

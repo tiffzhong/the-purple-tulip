@@ -1,0 +1,1 @@
+select * from inquiries where id = $1;

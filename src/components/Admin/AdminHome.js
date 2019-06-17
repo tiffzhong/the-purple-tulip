@@ -21,7 +21,6 @@ class AdminHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalShow: false,
       modalShowCreate: false
     };
   }
@@ -76,16 +75,13 @@ class AdminHome extends Component {
       this.props.inqs.map(inq => (
         <tbody>
           <tr>
-            <td>
-              <input type="checkbox" name="checked" value="checked" />
-            </td>
             <td>{inq.contactdate}</td>
             <td>{inq.inquiry_id}</td>
             <td>{inq.fullname}</td>
             <td>{inq.email}</td>
-            <td>{inq.inquiry}</td>
-            <td>{inq.date}</td>
-            <td>{inq.location}</td>
+            <td>
+              <Link to={`/admin/inq/${inq.id}`}>more</Link>
+            </td>
           </tr>
         </tbody>
       ));
@@ -122,15 +118,11 @@ class AdminHome extends Component {
                   <Table striped bordered hover>
                     <thead>
                       <tr>
-                        <th>/</th>
-
                         <th>Contact Date</th>
                         <th>Inquiry ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Reason</th>
-                        <th>Event Date</th>
-                        <th>Location</th>
+                        <th />
                       </tr>
                     </thead>
                     {allInqs}

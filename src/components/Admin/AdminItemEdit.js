@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setUser, updateItem, getItem, deleteItem } from "../../dux/reducer";
 import "./Admin.scss";

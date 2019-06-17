@@ -29,7 +29,8 @@ module.exports = {
         checked
       ])
       .then(response => {
-        response.status(200).send();
+        console.log(response);
+        res.status(200).send();
       })
       .catch(e => {
         console.log("error in newOrder", e);
@@ -83,5 +84,17 @@ module.exports = {
         return console.log("Email sent " + info.response);
       }
     });
+  },
+  getInquiry: (req, res) => {
+    const db = req.app.get("db");
+    console.log(req.params);
+    let { id } = req.params;
+
+    db.get_inquiry(id)
+      .then(inquiry => {
+        console.log(inquiry);
+        res.status(200).send(inquiry[0]);
+      })
+      .catch(error => console.log(error));
   }
 };

@@ -19,7 +19,7 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import AdminHome from "./components/Admin/AdminHome";
 
 import AdminItemEdit from "./components/Admin/AdminItemEdit";
-
+import AdminViewInq from "./components/Admin/AdminViewInq";
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
@@ -35,7 +35,9 @@ export default (
     <Route exact path="/admin" component={AdminLogin} />
     <Route path="/admin/home" component={AdminHome} />
     <Route path="/admin/item/:id" component={AdminItemEdit} />
+    <Route path="/admin/inq/:id" component={AdminViewInq} />
     <Route path="/contact" component={Contact} />
+
     <Route component={Error} />
   </Switch>
 );
