@@ -48,26 +48,21 @@ class AdminHome extends Component {
     const allItems =
       this.props.items.length > 0 &&
       this.props.items.map(item => (
-        <Card style={{ width: "17rem" }}>
-          <Card.Img
-            style={{ width: "17rem", height: "17rem" }}
-            variant="top"
-            src={item.product_image}
-            rounded
-          />
-          <Card.Body>
-            <Card.Title>{item.product_name}</Card.Title>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>{item.product_description} </ListGroupItem>
-            <ListGroupItem>
-              {item.product_size}, {item.product_category}, {item.product_price}
-            </ListGroupItem>
-          </ListGroup>
-          <ListGroup className="buttons">
-            <Link to={`/admin/item/${item.id}`}>Edit</Link>
-          </ListGroup>
-        </Card>
+        <tbody>
+          <tr>
+            <td>
+              <img src={item.product_image} width={50} />
+            </td>
+            <td>{item.product_name}</td>
+            <td>{item.product_description} </td>
+            <td>{item.product_size}</td>
+            <td>{item.product_category}</td>
+            <td>{item.product_price}</td>
+            <td>
+              <Link to={`/admin/item/${item.id}`}>Edit</Link>
+            </td>
+          </tr>
+        </tbody>
       ));
 
     const allInqs =
@@ -112,7 +107,22 @@ class AdminHome extends Component {
                 id="noanim-tab-example"
               >
                 <Tab eventKey="home" title="Product Items">
-                  <div className="item-container">{allItems}</div>
+                  <div className="item-container">
+                    <Table responsive>
+                      <thead>
+                        <tr>
+                          <th />
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Size</th>
+                          <th>Category</th>
+                          <th>Price</th>
+                          <th />
+                        </tr>
+                      </thead>
+                      {allItems}
+                    </Table>
+                  </div>
                 </Tab>
                 <Tab eventKey="profile" title="Inquries">
                   <Table striped bordered hover>
