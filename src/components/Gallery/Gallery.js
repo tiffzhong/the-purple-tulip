@@ -6,7 +6,7 @@ import g4 from "./gal4.jpg";
 import g5 from "./gal5.jpg";
 import g6 from "./gal6.jpg";
 import "./Gallery.scss";
-import NavBarGallery from "../NavBarGallery/NavBarGallery";
+import NavBarGallery from "../NavBars/NavBarGallery";
 import { Link } from "react-router-dom";
 
 class Gallery extends Component {

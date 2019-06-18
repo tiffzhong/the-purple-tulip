@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Contact.scss";
 import axios from "axios";
 import moment from "moment";
+import NavBarContact from "../NavBars/NavBarContact";
+import { Link } from "react-router-dom";
 class Contact extends Component {
   constructor() {
     super();
@@ -56,13 +58,13 @@ class Contact extends Component {
     const { fullname, email, inquiry, date, location, details } = this.state;
     console.log(this.state);
     return (
-      <div className="contact-container">
-        <section>
-          <h1>Contact </h1>
+      <div className="contact">
+        <NavBarContact />
+        <div className="contact-container">
+          <p>Contact me to place an order/delivery or inquire for an event.</p>
           <p>
-            Contact me to place an order/delivery or inquire for an event. If
-            you are looking to contact me for a wedding consultation, please
-            fill out this <a>form</a>.
+            If you are looking to contact me for a wedding consultation, please
+            fill out this <Link to="/services/wedding">form</Link>.
           </p>
           <form onSubmit={event => this.onSubmit(event)}>
             <label>Your Name:</label>
@@ -116,13 +118,17 @@ class Contact extends Component {
               Submit
             </button>
           </form>
-        </section>
-        <div className="text-container">
-          email:
-          <a href="mailto:ThePurpleTulip.inc@gmail.com">
-            ThePurpleTulip.inc@gmail.com
-          </a>{" "}
-          | text: 408-872-2972
+          <div className="text-container">
+            <h6>If you prefer direct contact:</h6>
+
+            <p>
+              email:{" "}
+              <a href="mailto:ThePurpleTulip.inc@gmail.com">
+                ThePurpleTulip.inc@gmail.com
+              </a>{" "}
+              | text: 408-872-2972
+            </p>
+          </div>
         </div>
       </div>
     );

@@ -14,7 +14,7 @@ module.exports = {
       checked
     } = req.body;
     const database = req.app.get("db");
-    let id = uniqid("i-");
+    let id = uniqid();
 
     database
       .order_inquiry([

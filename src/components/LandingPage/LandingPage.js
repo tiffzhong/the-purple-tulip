@@ -13,7 +13,7 @@ class LandingPage extends Component {
             <img src={logo} alt="logo" />
           </div>
           <div className="mission-container">
-            Flowers for a brighter and happier state of mind.
+            <p>Flowers for a brighter and happier state of mind.</p>
           </div>
           <Link to="/gallery">view gallery</Link>
         </section>

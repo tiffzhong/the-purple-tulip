@@ -21,15 +21,16 @@ class NavBar extends Component {
   render() {
     return (
       <div className="navbar-container">
-        <Link to="/">
+        {/* <Link to="/">
           <img src={logo} height="60" alt="logo" />
-        </Link>
+        </Link> */}
         <div className="links">
           <button onClick={this.toggle}>☰</button>
         </div>
         <ul className={this.state.toggle ? "show" : "hide"}>
+          <hr />
           <Link to="/">
-            <li>home</li>
+            <li className="handle">home</li>
           </Link>
           <Link to="/about">
             <li>about</li>
@@ -44,9 +45,10 @@ class NavBar extends Component {
           <Link to="/contact">
             <li>contact</li>
           </Link>
-          <Link to="/admin">
+          <Link to="/admin/home">
             <li>temp</li>
           </Link>
+          <hr />
         </ul>
       </div>
     );

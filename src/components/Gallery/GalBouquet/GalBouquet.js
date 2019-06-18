@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import "./GalBouquet.scss";
-import NavBarGallery from "../../NavBarGallery/NavBarGallery";
+import NavBarGallery from "../../NavBars/NavBarGallery";
 import g1 from "../gal1.jpg";
 import g2 from "../gal2.jpg";
 import g3 from "../gal3.jpg";

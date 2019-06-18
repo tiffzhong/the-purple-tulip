@@ -2,15 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setUser, getItems, getInqs } from "../../dux/reducer";
 import Nav1 from "./AdminNav";
-import {
-  Tabs,
-  Tab,
-  Button,
-  Card,
-  ListGroup,
-  ListGroupItem,
-  Table
-} from "react-bootstrap";
+import { Tabs, Tab, Button, Table } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
 import "./Admin.scss";
 import { Link } from "react-router-dom";
@@ -21,7 +13,8 @@ class AdminHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalShowCreate: false
+      modalShowCreate: false,
+      key: "items"
     };
   }
 
@@ -87,7 +80,7 @@ class AdminHome extends Component {
             <Nav1 />
 
             <div className="admin-header">
-              <h2>Welcome back {user}!</h2>
+              <h2>Hello {user}!</h2>
               <Button
                 variant="info"
                 onClick={() => this.setState({ modalShowCreate: true })}
@@ -102,11 +95,11 @@ class AdminHome extends Component {
             </div>
             <div className="inquiry-container">
               <Tabs
-                defaultActiveKey="home"
-                transition={false}
-                id="noanim-tab-example"
+                activeKey={this.state.key}
+                onSelect={key => this.setState({ key })}
+                id="controlled-tab-example"
               >
-                <Tab eventKey="home" title="Product Items">
+                <Tab eventKey="items" title="Product Items">
                   <div className="item-container">
                     <Table responsive>
                       <thead>
@@ -124,7 +117,7 @@ class AdminHome extends Component {
                     </Table>
                   </div>
                 </Tab>
-                <Tab eventKey="profile" title="Inquries">
+                <Tab eventKey="inq" title="Inquries">
                   <Table striped bordered hover>
                     <thead>
                       <tr>
@@ -138,7 +131,7 @@ class AdminHome extends Component {
                     {allInqs}
                   </Table>
                 </Tab>
-                <Tab eventKey="contact" title="Wedding Inquries">
+                <Tab eventKey="wedding" title="Wedding Inquries">
                   Wedding Inquries
                 </Tab>
               </Tabs>
