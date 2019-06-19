@@ -41,9 +41,13 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        img {
-          margin: 5px;
-          width: 280px;
+        .photo-holder-container {
+          display: flex;
+          flex-direction: column;
+          img {
+            margin: 5px;
+            width: 280px;
+          }
         }
       }
     }
