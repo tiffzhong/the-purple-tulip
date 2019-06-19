@@ -10,13 +10,15 @@ class Services extends Component {
       <div className="services">
         <NavBarServices />
         <div className="service-container">
-          <h2>
-            We do{" "}
-            <Link to="/services/deliveryinfo">Local Flower Deliveries</Link>,{" "}
-            <Link to="/gallery/occasions">Special Events</Link>, and{" "}
-            <Link to="/services/wedding">Weddings</Link>!
-          </h2>
-          <img src={servicePic} alt="flower-service" />
+          <div className="image-container">
+            <h1>
+              We do{" "}
+              <Link to="/services/deliveryinfo">Local Flower Deliveries</Link>,{" "}
+              <Link to="/gallery/occasions">Special Events</Link>, and{" "}
+              <Link to="/services/wedding">Weddings</Link>!
+            </h1>
+            <img src={servicePic} alt="flower-service" />
+          </div>
           <div className="service-info">
             <h5>Deliveries</h5>
             <p>

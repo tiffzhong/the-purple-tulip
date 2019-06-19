@@ -60,6 +60,7 @@ class Contact extends Component {
     return (
       <div className="contact">
         <NavBarContact />
+        {/* <div className="container-overlay" /> */}
         <div className="contact-container">
           <p>Contact me to place an order/delivery or inquire for an event.</p>
           <p>
