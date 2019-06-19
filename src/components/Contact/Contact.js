@@ -25,7 +25,6 @@ class Contact extends Component {
   };
 
   order = () => {
-    console.log("order is running");
     const {
       contactdate,
       fullname,

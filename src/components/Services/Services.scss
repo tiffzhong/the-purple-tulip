@@ -38,7 +38,7 @@
       }
     }
     a {
-      color: black;
+      color: #ae85aa;
     }
     img {
       height: 22em;
@@ -73,6 +73,7 @@
   }
 }
 
+//DELIVERY INFO
 .deliveryinfo {
   font-family: "Quicksand", sans-serif;
   .delivery-info-container {
@@ -96,6 +97,9 @@
         font-size: 1.5em;
         text-align: center;
       }
+      a {
+        color: #ae85aa;
+      }
     }
 
     h6 {
@@ -110,6 +114,10 @@
       position: relative;
       text-align: center;
       h1 {
+        font-family: "Days One", sans-serif;
+        font-size: 2em;
+        margin: 0.5em 0;
+
         width: 100%;
         color: white;
         position: absolute;
@@ -146,6 +154,44 @@
             padding-top: 1em;
           }
         }
+      }
+    }
+  }
+}
+
+//WEDDING CONSULTATION
+.wedding-consult {
+  font-family: "Quicksand", sans-serif;
+  .wedding-container {
+    border: 1px dotted black;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .image-container {
+      position: relative;
+      text-align: center;
+      h1 {
+        font-family: "Days One", sans-serif;
+        font-size: 2em;
+        margin: 0.5em 0;
+
+        width: 100%;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      img {
+        height: 22em;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
       }
     }
   }

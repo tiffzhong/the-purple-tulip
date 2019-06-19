@@ -12,7 +12,6 @@ class Services extends Component {
         <div className="service-container">
           <div className="image-container">
             <h1>
-              We do{" "}
               <Link to="/services/deliveryinfo">Local Flower Deliveries</Link>,{" "}
               <Link to="/gallery/occasions">Special Events</Link>, and{" "}
               <Link to="/services/wedding">Weddings</Link>!
@@ -49,12 +48,12 @@ class Services extends Component {
               contact you back via email. First consultation is free. Any
               consultation requested by client after first meet is $50. Feel
               free to refer to our <Link to="/gallery/occasions">wedding</Link>{" "}
-              section for inspiration.
+              gallery for inspiration.
             </p>
 
             <p>
               Have a question about designs or what type of flowers we carry? Do
-              not hesitate to <Link to="/contact">Contact</Link> me!
+              not hesitate to <Link to="/contact">contact</Link> me!
             </p>
           </div>
         </div>

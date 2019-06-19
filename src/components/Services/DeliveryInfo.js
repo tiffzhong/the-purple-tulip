@@ -26,7 +26,7 @@ function DeliveryInfo() {
               <li>Saturdays and Sundays: 11:00am to 6:00pm</li>
               <li className="last-li">
                 *We provide same day delivery service, however there is an
-                additional $10 charge along with your order being designers
+                additional $10 charge along with your order being designer's
                 choice.
               </li>
             </ul>
@@ -52,12 +52,12 @@ function DeliveryInfo() {
 
         <div className="heading-container">
           <h5>
-            <Link to="/contact">Contact</Link> to place an order or for a
-            quicker response, text us at 408-872-2972
+            Place an order through our <Link to="/contact">contact</Link> form
+            or for a quicker response, text us at 408-872-2972.
           </h5>
           <h5>
             For inspiration on what to order, check out our{" "}
-            <Link to="/gallery">gallery</Link>
+            <Link to="/gallery">gallery</Link>.
           </h5>
         </div>
       </div>
