@@ -63,7 +63,7 @@
         padding: 1.2em 0;
       }
       .liner {
-        border-top: 1px dotted purple;
+        border-top: 1px dotted #ae85aa;
         width: 90%;
       }
       p:last-child {
@@ -194,5 +194,87 @@
         border-radius: 10px;
       }
     }
+    h4 {
+      font-size: 1.3em;
+      text-align: center;
+      padding: 1em;
+    }
+    form {
+      width: 80%;
+      .info-container {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          font-family: "Days One", sans-serif;
+          font-size: 1.4em;
+          color: #ae85aa;
+          font-weight: bold;
+          margin: 0.5em 0em;
+        }
+        label {
+          font-size: 1.2em;
+        }
+        input {
+          height: 2em;
+          margin-bottom: 1.5em;
+          border: 1px solid black;
+        }
+        textarea {
+          width: 100%;
+          height: 4em;
+          resize: none;
+          margin-bottom: 1.5em;
+          border: 1px solid black;
+        }
+      }
+      .input-container {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        input {
+          width: 20px;
+          margin-right: 12px;
+          margin-bottom: 0em;
+        }
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+    button {
+      height: 2em;
+      width: 10em;
+      background-color: #98beab;
+      border-radius: 10px;
+      font-size: 1.4em;
+      color: black;
+      margin-bottom: 1.4em;
+    }
+    button:hover {
+      border: 1px solid #ae85aa;
+    }
+  }
+}
+.text-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  h5 {
+    font-size: 1.3em;
+    text-align: center;
+    padding: 0.2em 0em;
+  }
+  h5:last-child {
+    padding-bottom: 1.5em;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    cursor: pointer;
+    color: #98beab;
   }
 }
