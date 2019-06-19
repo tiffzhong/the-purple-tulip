@@ -14,9 +14,9 @@ const GET_ITEM = "GET_ITEM";
 const CREATE_ITEM = "CREATE_ITEM";
 const UPDATE_ITEM = "UPDATE_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";
-
 const GET_INQURIES = "GET_INQURIES";
 const GET_INQUIRY = "GET_INQUIRY";
+
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SET_USER:

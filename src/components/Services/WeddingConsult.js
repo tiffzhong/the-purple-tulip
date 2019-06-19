@@ -36,6 +36,14 @@ class WeddingConsult extends Component {
       [event.target.name]: event.target.value
     });
   };
+  handleCheckBox = event => {
+    const target = event.target;
+    const value = target.type !== "checkbox" ? target.value : target.checked;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  };
 
   order = () => {
     const {
@@ -210,8 +218,8 @@ class WeddingConsult extends Component {
                 <input
                   name="needpersonal"
                   type="checkbox"
-                  value={needpersonal}
-                  onChange={event => this.handleChange(event)}
+                  checked={needpersonal}
+                  onChange={this.handleCheckBox}
                 />
                 <p>Personal flowers (bouquets, boutonnieres, corsages, etc)</p>
               </div>
@@ -219,8 +227,8 @@ class WeddingConsult extends Component {
                 <input
                   name="needceremony"
                   type="checkbox"
-                  value={needceremony}
-                  onChange={event => this.handleChange(event)}
+                  checked={needceremony}
+                  onChange={this.handleCheckBox}
                 />
                 <p>Ceremony decor</p>
               </div>
@@ -228,8 +236,8 @@ class WeddingConsult extends Component {
                 <input
                   name="needreception"
                   type="checkbox"
-                  value={needreception}
-                  onChange={event => this.handleChange(event)}
+                  checked={needreception}
+                  onChange={this.handleCheckBox}
                 />
                 <p>Reception decor</p>
               </div>
@@ -237,8 +245,8 @@ class WeddingConsult extends Component {
                 <input
                   name="needcakeflowers"
                   type="checkbox"
-                  value={needcakeflowers}
-                  onChange={event => this.handleChange(event)}
+                  checked={needcakeflowers}
+                  onChange={this.handleCheckBox}
                 />
                 <p>Cake flowers</p>
               </div>
@@ -299,8 +307,7 @@ class WeddingConsult extends Component {
                 onChange={event => this.handleChange(event)}
               />
             </div>
-
-            <h4>Please allow up to 48 hours for a reply via email.</h4>
+            <h4>Please allow up to 48 hours for a reply via email.</h4>{" "}
           </form>
           <button
             onClick={() => {

@@ -33,7 +33,7 @@ const nmController = require("./controllers/nmController");
 const igController = require("./controllers/igController");
 const adminController = require("./controllers/adminController");
 const productController = require("./controllers/productController");
-
+const weddingController = require("./controllers/weddingController");
 //Items
 app.get("/api/products", productController.getProducts);
 app.post("/api/product", productController.createProduct);
@@ -56,6 +56,10 @@ app.post("/admin/logout", adminController.logout);
 //inquiry
 app.get("/admin/inquiries", adminController.getInquiries);
 app.get("/admin/inquiry/:id", nmController.getInquiry);
+
+//wedding
+app.get("/admin/weddings", weddingController.getWeddings);
+app.post("/api/wedding", weddingController.createWedding);
 
 const PORT = 4000;
 app.listen(PORT, () => {
