@@ -5,7 +5,9 @@ const INITIAL_STATE = {
   items: [],
   item: [],
   inqs: [],
-  inq: []
+  inq: [],
+  weddings: [],
+  wedding: []
 };
 
 const SET_USER = "SET_USER";
@@ -16,6 +18,8 @@ const UPDATE_ITEM = "UPDATE_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";
 const GET_INQURIES = "GET_INQURIES";
 const GET_INQUIRY = "GET_INQUIRY";
+const GET_WEDDINGS = "GET_WEDDINGS";
+const GET_WEDDING = "GET_WEDDING";
 
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -35,6 +39,10 @@ export default function reducer(state = INITIAL_STATE, action) {
       return { ...state, inqs: action.payload };
     case GET_INQUIRY:
       return { ...state, inq: action.payload };
+    case `${GET_WEDDINGS}_FULFILLED`:
+      return { ...state, weddings: action.payload };
+    case GET_WEDDING:
+      return { ...state, wedding: action.payload };
     default:
       return { ...state };
   }
@@ -140,6 +148,25 @@ export function getInqs() {
 export function getInq(id) {
   return {
     type: GET_INQUIRY,
+    payload: id
+  };
+}
+
+export function getWeddings() {
+  return {
+    type: GET_WEDDINGS,
+    payload: axios
+      .get("/admin/weddings")
+      .then(res => {
+        return res.data;
+      })
+      .catch(error => console.log("error in getWeddings", error))
+  };
+}
+
+export function getWedding(id) {
+  return {
+    type: GET_WEDDING,
     payload: id
   };
 }

@@ -1,0 +1,1 @@
+select * from weddings where id = $1;

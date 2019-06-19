@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setUser, getItems, getInqs } from "../../dux/reducer";
+import { setUser, getItems, getInqs, getWeddings } from "../../dux/reducer";
 import Nav1 from "./AdminNav";
 import { Tabs, Tab, Button, Table } from "react-bootstrap";
 import AdminItemCreateModal from "./AdminItemCreate";
@@ -26,6 +26,7 @@ class AdminHome extends Component {
     });
     this.props.getItems();
     this.props.getInqs();
+    this.props.getWeddings();
   }
 
   redirect = () => {
@@ -68,7 +69,24 @@ class AdminHome extends Component {
             <td>{inq.fullname}</td>
             <td>{inq.email}</td>
             <td>
-              <Link to={`/admin/inq/${inq.id}`}>more</Link>
+              <Link to={`/admin/wedding/${inq.id}`}>View</Link>
+            </td>
+          </tr>
+        </tbody>
+      ));
+
+    const allWeddings =
+      this.props.weddings.length > 0 &&
+      this.props.weddings.map(wedding => (
+        <tbody>
+          <tr>
+            <td>{wedding.weddingcontactdate}</td>
+            <td>{wedding.fullnames}</td>
+            <td>{wedding.weddingemail}</td>
+            <td>{wedding.weddingphone}</td>
+            <td>{wedding.weddingdate}</td>
+            <td>
+              <Link to={`/admin/wedding/${wedding.id}`}>View</Link>
             </td>
           </tr>
         </tbody>
@@ -132,7 +150,19 @@ class AdminHome extends Component {
                   </Table>
                 </Tab>
                 <Tab eventKey="wedding" title="Wedding Inquries">
-                  Wedding Inquries
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>Contact Date</th>
+                        <th>Names</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Wedding Date</th>
+                        <th />
+                      </tr>
+                    </thead>
+                    {allWeddings}
+                  </Table>
                 </Tab>
               </Tabs>
             </div>
@@ -147,15 +177,16 @@ class AdminHome extends Component {
   }
 }
 const mapStateToProps = state => {
-  let { user, items, inqs } = state;
+  let { user, items, inqs, weddings } = state;
   return {
     user,
     items,
-    inqs
+    inqs,
+    weddings
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getItems, setUser, getInqs }
+  { getItems, setUser, getInqs, getWeddings }
 )(AdminHome);

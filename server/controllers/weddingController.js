@@ -1,5 +1,14 @@
 const nodemailer = require("nodemailer");
 module.exports = {
+  getWedding: (req, res) => {
+    const db = req.app.get("db");
+    let { id } = req.params;
+    db.get_wedding(id)
+      .then(wedding => {
+        res.status(200).send(wedding[0]);
+      })
+      .catch(error => console.log("error in get products", error));
+  },
   getWeddings: (req, res) => {
     const db = req.app.get("db");
     db.get_weddings()

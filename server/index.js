@@ -59,6 +59,7 @@ app.get("/admin/inquiry/:id", nmController.getInquiry);
 
 //wedding
 app.get("/admin/weddings", weddingController.getWeddings);
+app.get("/admin/wedding/:id", weddingController.getWedding);
 app.post("/api/wedding", weddingController.createWedding);
 
 const PORT = 4000;
