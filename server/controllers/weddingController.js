@@ -88,36 +88,38 @@ module.exports = {
       newpinterest = pinterest,
       newextradetails = extradetails,
       content = `
-      <header style="background: #A894C2; text-align: center;  height: 30px; font-family:arial;"><h1 style= "font-size: 22px;">The Purple Tulip: New Wedding Inquiry</h1></header>
+      <header style="background: #A894C2; text-align: center;  height: 45px; font-family:arial; display: flex; justify-content: center; align-items: center;">
+<h1 style= " font-size: 20px;">The Purple Tulip: New Wedding Inquiry</h1></header>
       <div style="font-family:arial; "><p style= "font-size: 18px;">You have a new wedding inquiry: </p>
-      <ul style="list-style-type:none; font-size: 16px;">
-      <p style= "font-size: 22px; font-size: 20px; font-weight: bold">Contact Info</p><br />
-        <li>Date: ${newweddingcontactdate}</li> <br />
-        <li>Full Names: ${newfullnames}</li> <br />
-        <li>Email: ${newweddingemail}</li><br />
-        <li>Phone: ${newweddingphone}</li><br />
-        <p style= "font-size: 22px; font-size: 18px; font-weight: bold">Wedding Info</p><br />
-        <li>Wedding Date: ${newweddingdate}</li><br />
-        <li>Ceremony Info: ${newceremonyinfo}</li><br />
-        <li>Reception Info: ${newreceptioninfo}</li><br />
-        <li>Number of Guests: ${newguestcount}</li><br />
-        <li>Number of Bridal Party: ${newbridalparty}</li><br />
-        <li>Color Scheme: ${newcolorscheme}</li><br />
-        <p style= "font-size: 22px; font-size: 18px; font-weight: bold">Wedding Flowers</p><br />
-        <li>Needs bouquets, boutonnieres, corsages: ${newneedpersonal}</li><br />
-        <li>Needs Ceremony decor: ${newneedceremony}</li><br />
-        <li>Needs Reception decor: ${newneedreception}</li><br />
-        <li>Needs Cake decor: ${newneedcakeflowers}</li><br />
-        <li>Other Needs: ${newneedother}</li><br />
-        <li>Envision of Flowers( Tables, bars, pews, altar, restrooms, etc): ${newenvision}</li><br />
-        <li>Wedding Style: ${newweddingstyle}</li><br />
-        <li>Budget: ${newbudget}</li><br />
-        <li>Pinterest boards/Inspirations: ${newpinterest}</li><br />
+      <ul style="list-style-type:none; font-size: 16px; line-height: 30px;">
+      <p style= "font-size: 20px; font-size: 20px; font-weight: bold; margin: 0 auto;">Contact Info</p>
+        <li>Date: ${newweddingcontactdate}</li>
+        <li>Full Names: ${newfullnames}</li>
+        <li>Email: ${newweddingemail}</li>
+        <li>Phone: ${newweddingphone}</li>
+        <p style= "font-size: 20px; font-size: 20px; font-weight: bold; margin: 0 auto;">Wedding Info</p>
+        <li>Wedding Date: ${newweddingdate}</li>
+        <li>Ceremony Info: ${newceremonyinfo}</li>
+        <li>Reception Info: ${newreceptioninfo}</li>
+        <li>Number of Guests: ${newguestcount}</li>
+        <li>Number of Bridal Party: ${newbridalparty}</li>
+        <li>Color Scheme: ${newcolorscheme}</li>
+        <p style= "font-size: 20px; font-size: 20px; font-weight: bold; margin: 0 auto;">Wedding Flowers</p>
+        <li>Needs bouquets, boutonnieres, corsages: ${newneedpersonal}</li>
+        <li>Needs Ceremony decor: ${newneedceremony}</li>
+        <li>Needs Reception decor: ${newneedreception}</li>
+        <li>Needs Cake decor: ${newneedcakeflowers}</li>
+        <li>Other Needs: ${newneedother}</li>
+        <li>Envision of Flowers( Tables, bars, pews, altar, restrooms, etc): ${newenvision}</li>
+        <li>Wedding Style: ${newweddingstyle}</li>
+        <li>Budget: ${newbudget}</li>
+        <li>Pinterest boards/Inspirations: ${newpinterest}</li>
         <li>Other Details: ${newextradetails}</li>
       </ul>
-      <div style="background: #98BEAB; height: 20px;">
-      <p style="color: black; text-align: center">TPT</p></div>
-      </div>  
+      <footer style="background: #98BEAB; height: 50px; text-align: center;">
+      <p style="color: black; padding: 5px; margin: 0 auto;">TPT</p><a href="www.google.com" style="color: black; text-decoration: none; padding: 5px; margin: 0 auto;">Visit Website</a>
+      <a href="www.google.com/admin" style="color: black; text-decoration: none; padding: 5px; margin: 0 auto;">Visit Admin Page</a>
+      </footer>  
     `;
 
     const transporter = nodemailer.createTransport({

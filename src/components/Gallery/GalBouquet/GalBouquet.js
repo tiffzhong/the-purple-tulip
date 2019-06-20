@@ -4,13 +4,48 @@ import "./GalBouquet.scss";
 import NavBarGallery from "../../NavBars/NavBarGallery";
 import { connect } from "react-redux";
 import { getItems } from "../../../dux/reducer";
+// import BouquetModal from "./BouquetModal";
+import { Modal, Button } from "react-bootstrap";
+
+class BouquetModal extends React.Component {
+  render() {
+    return (
+      <Modal
+        {...this.props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            {this.props.itemname}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={this.props.image} width="300" />
+          <p>{this.props.desc} </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+}
 
 class GalBouquet extends Component {
+  constructor(...args) {
+    super(...args);
+
+    this.state = { modalShow: false };
+  }
+
   componentDidMount() {
     this.props.getItems();
   }
   render() {
     console.log(this.props, "items on gal");
+    let modalClose = () => this.setState({ modalShow: false });
 
     const bouquetxsmall =
       this.props.items.length > 0 &&
@@ -26,8 +61,22 @@ class GalBouquet extends Component {
               src={bouquetxsmallDisplay.product_image}
               alt="bouquetxsmallDisplay"
             />
-            {bouquetxsmallDisplay.product_name}
-            {bouquetxsmallDisplay.product_price}
+            <div className="overlay-gal" />
+            <h2>{bouquetxsmallDisplay.product_name}</h2>
+            <div className="content-details">
+              {/* <p>{bouquetxsmallDisplay.product_description}</p> */}
+              <Button onClick={() => this.setState({ modalShow: true })}>
+                view more deetz
+              </Button>
+
+              <BouquetModal
+                show={this.state.modalShow}
+                onHide={modalClose}
+                image={bouquetxsmallDisplay.product_image}
+                itemname={bouquetxsmallDisplay.product_name}
+                desc={bouquetxsmallDisplay.product_description}
+              />
+            </div>
           </div>
         ));
 
@@ -45,8 +94,11 @@ class GalBouquet extends Component {
               src={bouquetsmallDisplay.product_image}
               alt="bouquetsmallDisplay"
             />
-            {bouquetsmallDisplay.product_name}
-            {bouquetsmallDisplay.product_price}
+            <div className="overlay-gal" />
+            <h2>{bouquetsmallDisplay.product_name}</h2>
+            <div className="content-details">
+              <p>{bouquetsmallDisplay.product_description}</p>
+            </div>
           </div>
         ));
     const bouquetMedium =
@@ -63,8 +115,11 @@ class GalBouquet extends Component {
               src={bouquetMediumDisplay.product_image}
               alt="bouquetMediumDisplay"
             />
-            {bouquetMediumDisplay.product_name}
-            {bouquetMediumDisplay.product_price}
+            <div className="overlay-gal" />
+            <h2>{bouquetMediumDisplay.product_name}</h2>
+            <div className="content-details">
+              <p>{bouquetMediumDisplay.product_description}</p>
+            </div>
           </div>
         ));
     const bouquetLarge =
@@ -81,8 +136,11 @@ class GalBouquet extends Component {
               src={bouquetLargeDisplay.product_image}
               alt="bouquetLargeDisplay"
             />
-            {bouquetLargeDisplay.product_name}
-            {bouquetLargeDisplay.product_price}
+            <div className="overlay-gal" />
+            <h2> {bouquetLargeDisplay.product_name}</h2>
+            <div className="content-details">
+              <p>{bouquetLargeDisplay.product_description}</p>
+            </div>
           </div>
         ));
     const bouquetXLarge =
@@ -99,8 +157,20 @@ class GalBouquet extends Component {
               src={bouquetXLargeDisplay.product_image}
               alt="bouquetXLargeDisplay"
             />
-            {bouquetXLargeDisplay.product_name}
-            {bouquetXLargeDisplay.product_price}
+            <div className="overlay-gal" />
+            <h2>{bouquetXLargeDisplay.product_name}</h2>
+            <div className="content-details">
+              <p>{bouquetXLargeDisplay.product_description}</p>
+            </div>
+            <BouquetModal buttonLabel="Open image modal">
+              <div className="">
+                <img
+                  className=""
+                  src={bouquetXLargeDisplay.product_image}
+                  alt="bouquetXLargeDisplay"
+                />
+              </div>
+            </BouquetModal>
           </div>
         ));
 
@@ -108,43 +178,43 @@ class GalBouquet extends Component {
       <>
         <NavBarGallery />
         <div className="bouquet-gallery">
-          <h1>Bouquets</h1>
+          <h1>bouquets</h1>
           <div className="link-header">
-            <Link smooth to="/gallery/bouquets#size1">
-              Size1
+            <Link smooth to="/gallery/bouquets#xsmall">
+              xsmall
             </Link>
-            <Link smooth to="/gallery/bouquets#size2">
-              Size2
+            <Link smooth to="/gallery/bouquets#small">
+              small
             </Link>
-            <Link smooth to="/gallery/bouquets#size3">
-              Size3
+            <Link smooth to="/gallery/bouquets#medium">
+              medium
             </Link>
-            <Link smooth to="/gallery/bouquets#size4">
-              Size4
+            <Link smooth to="/gallery/bouquets#large">
+              large
             </Link>
-            <Link smooth to="/gallery/bouquets#size5">
-              Size5
+            <Link smooth to="/gallery/bouquets#xlarge">
+              xlarge
             </Link>
           </div>
           <div className="bouquet-photo-container">
-            <section id="size1">
-              <h2>X-Small</h2>
+            <section id="xsmall">
+              <h2>xsmall</h2>
               <div className="photo-container">{bouquetxsmall}</div>
             </section>
-            <section id="size2">
-              <h2>Small</h2>
+            <section id="small">
+              <h2>small</h2>
               <div className="photo-container">{bouquetsmall}</div>
             </section>
-            <section id="size3">
-              <h2>Medium</h2>
+            <section id="medium">
+              <h2>medium</h2>
               <div className="photo-container">{bouquetMedium}</div>
             </section>
-            <section id="size4">
-              <h2>Large</h2>
+            <section id="large">
+              <h2>large</h2>
               <div className="photo-container">{bouquetLarge}</div>
             </section>
-            <section id="size5">
-              <h2>X-Large</h2>
+            <section id="xlarge">
+              <h2>xlarge</h2>
               <div className="photo-container">{bouquetXLarge}</div>
             </section>
           </div>

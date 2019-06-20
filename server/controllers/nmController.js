@@ -45,21 +45,23 @@ module.exports = {
       newLocation = location,
       newDetails = details,
       content = `
-      <header style="background: #A894C2; text-align: center;  height: 30px; font-family:arial;"><h1>The Purple Tulip: New Inquiry</h1></header>
+      <header style="background: #A894C2; text-align: center;  height: 45px; font-family:arial; display: flex; justify-content: center; align-items: center;">
+<h1 style= " font-size: 20px;">The Purple Tulip: New Inquiry</h1></header>
       <div style="font-family:arial; "><p style= "font-size: 18px;">You have a new inquiry: </p>
-      <ul style="list-style-type:none; font-size: 16px;">
-        <li>Date: ${newContactDate}</li> <br />
-        <li>Inquiry ID: ${inquiry_id}</li> <br />
-        <li>Name: ${newFullName}</li><br />
-        <li>Email: ${newEmail}</li><br />
-        <li>Inquiry: ${newInquiry}</li><br />
-        <li>Event Date: ${newDate}</li><br />
-        <li>Event Location: ${newLocation}</li><br />
+    <ul style="list-style-type:none; font-size: 16px; line-height: 30px;">
+        <li>Date: ${newContactDate}</li>
+        <li>Inquiry ID: ${inquiry_id}</li> 
+        <li>Name: ${newFullName}</li>
+        <li>Email: ${newEmail}</li>
+        <li>Inquiry: ${newInquiry}</li>
+        <li>Event Date: ${newDate}</li>
+        <li>Event Location: ${newLocation}</li>
         <li>Other Details: ${newDetails}</li>
       </ul>
-      <div style="background: #98BEAB; height: 20px;">
-      <p style="color: black; text-align: center">TPT</p></div>
-      </div>  
+      <footer style="background: #98BEAB; height: 50px; text-align: center;">
+      <p style="color: black; padding: 5px; margin: 0 auto;">TPT</p><a href="www.google.com" style="color: black; text-decoration: none; padding: 5px; margin: 0 auto;">Visit Website</a>
+      <a href="www.google.com/admin" style="color: black; text-decoration: none; padding: 5px; margin: 0 auto;">Visit Admin Page</a>
+      </footer>  
     `;
 
     const transporter = nodemailer.createTransport({
