@@ -21,6 +21,7 @@ import AdminHome from "./components/Admin/AdminHome";
 import AdminItemEdit from "./components/Admin/AdminItemEdit";
 import AdminViewInq from "./components/Admin/AdminViewInq";
 import AdminViewWed from "./components/Admin/AdminViewWed";
+import BouquetModal from "./components/Gallery/GalBouquet/BouquetModal";
 export default (
   <Switch>
     <Route exact path="/" component={LandingPage} />
@@ -28,6 +29,7 @@ export default (
     <Route exact path="/gallery" component={Gallery} />
     <Route exact path="/gallery/occasions" component={GalOccasion} />
     <Route exact path="/gallery/bouquets" component={GalBouquet} />
+
     <Route exact path="/gallery/vases" component={GalVase} />
 
     <Route exact path="/services" component={Services} />

@@ -4,44 +4,23 @@ import "./GalBouquet.scss";
 import NavBarGallery from "../../NavBars/NavBarGallery";
 import { connect } from "react-redux";
 import { getItems } from "../../../dux/reducer";
-// import BouquetModal from "./BouquetModal";
-import { Modal, Button } from "react-bootstrap";
-
-class BouquetModal extends React.Component {
-  render() {
-    return (
-      <Modal
-        {...this.props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            {this.props.itemname}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <img src={this.props.image} width="300" />
-          <p>{this.props.desc} </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-}
+import BouquetModal from "./BouquetModal";
 
 class GalBouquet extends Component {
   constructor(...args) {
     super(...args);
 
-    this.state = { modalShow: false };
+    this.state = { modalShow: false, imageClicked: [] };
   }
 
   componentDidMount() {
     this.props.getItems();
+  }
+  setImage(image) {
+    this.setState({
+      modalShow: true,
+      imageClicked: image
+    });
   }
   render() {
     console.log(this.props, "items on gal");
@@ -61,22 +40,12 @@ class GalBouquet extends Component {
               src={bouquetxsmallDisplay.product_image}
               alt="bouquetxsmallDisplay"
             />
-            <div className="overlay-gal" />
+            <div
+              className="overlay-gal"
+              onClick={() => this.setImage(bouquetxsmallDisplay)}
+            />
             <h2>{bouquetxsmallDisplay.product_name}</h2>
-            <div className="content-details">
-              {/* <p>{bouquetxsmallDisplay.product_description}</p> */}
-              <Button onClick={() => this.setState({ modalShow: true })}>
-                view more deetz
-              </Button>
-
-              <BouquetModal
-                show={this.state.modalShow}
-                onHide={modalClose}
-                image={bouquetxsmallDisplay.product_image}
-                itemname={bouquetxsmallDisplay.product_name}
-                desc={bouquetxsmallDisplay.product_description}
-              />
-            </div>
+            {/* <div className="content-details" /> */}
           </div>
         ));
 
@@ -162,15 +131,6 @@ class GalBouquet extends Component {
             <div className="content-details">
               <p>{bouquetXLargeDisplay.product_description}</p>
             </div>
-            <BouquetModal buttonLabel="Open image modal">
-              <div className="">
-                <img
-                  className=""
-                  src={bouquetXLargeDisplay.product_image}
-                  alt="bouquetXLargeDisplay"
-                />
-              </div>
-            </BouquetModal>
           </div>
         ));
 
@@ -217,6 +177,12 @@ class GalBouquet extends Component {
               <h2>xlarge</h2>
               <div className="photo-container">{bouquetXLarge}</div>
             </section>
+
+            <BouquetModal
+              show={this.state.modalShow}
+              onHide={modalClose}
+              selectedid={this.state.imageClicked}
+            />
           </div>
         </div>
       </>

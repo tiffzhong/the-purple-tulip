@@ -3,7 +3,6 @@ import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setUser, updateItem, getItem, deleteItem } from "../../dux/reducer";
 import "./Admin.scss";
-import "react-router-modal/css/react-router-modal.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 class EditAndDeleteModal extends Component {

@@ -67,18 +67,19 @@
             font-size: 1.2em;
           }
           .overlay-gal {
+            cursor: pointer;
             width: 18rem;
             height: 18rem;
             position: absolute;
             background: rgba(148, 107, 160, 0.461);
-            position: absolute;
+
             left: 0;
             top: 0;
             // bottom: 0;
             // right: 0;
             transition: all 0.4s ease-in-out 0s;
             opacity: 0;
-            z-index: 1;
+            // z-index: 1;
             border-radius: 5px;
           }
           &:hover .overlay-gal {
@@ -93,14 +94,14 @@
             opacity: 0;
             transform: translate(-50%, -50%);
             transition: all 0.3s ease-in-out 0s;
-            z-index: 1;
-            p {
-              font-size: 1.2em;
-              color: white;
-              // text-align: start;
-              padding: 1em;
-              text-align: center;
-            }
+            // z-index: 1;
+            // p {
+            //   font-size: 1.2em;
+            //   color: white;
+            //   // text-align: start;
+            //   padding: 1em;
+            //   text-align: center;
+            // }
           }
           &:hover .content-details {
             opacity: 1;
@@ -112,5 +113,15 @@
         }
       }
     }
+  }
+}
+//MODAL
+
+.modal-body {
+  img {
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+    max-width: 100%;
   }
 }
