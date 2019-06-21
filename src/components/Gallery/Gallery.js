@@ -41,7 +41,7 @@ class Gallery extends Component {
               <div className="overlay" />
               <img src={g1} alt="g6" />
               <div className="content-details">
-                <Link to="/gallery/occasions">weddings</Link>
+                <Link to="/gallery/occasions#wedding">weddings</Link>
               </div>
             </div>
             <div className="content-1">
