@@ -16,12 +16,12 @@ class GalBouquet extends Component {
   componentDidMount() {
     this.props.getItems();
   }
-  setImage(image) {
+  setImage = image => {
     this.setState({
       modalShow: true,
       imageClicked: image
     });
-  }
+  };
   render() {
     console.log(this.props, "items on gal");
     let modalClose = () => this.setState({ modalShow: false });
@@ -45,7 +45,6 @@ class GalBouquet extends Component {
               onClick={() => this.setImage(bouquetxsmallDisplay)}
             />
             <h2>{bouquetxsmallDisplay.product_name}</h2>
-            {/* <div className="content-details" /> */}
           </div>
         ));
 
@@ -63,11 +62,11 @@ class GalBouquet extends Component {
               src={bouquetsmallDisplay.product_image}
               alt="bouquetsmallDisplay"
             />
-            <div className="overlay-gal" />
+            <div
+              className="overlay-gal"
+              onClick={() => this.setImage(bouquetsmallDisplay)}
+            />
             <h2>{bouquetsmallDisplay.product_name}</h2>
-            <div className="content-details">
-              <p>{bouquetsmallDisplay.product_description}</p>
-            </div>
           </div>
         ));
     const bouquetMedium =
@@ -84,11 +83,12 @@ class GalBouquet extends Component {
               src={bouquetMediumDisplay.product_image}
               alt="bouquetMediumDisplay"
             />
-            <div className="overlay-gal" />
+
+            <div
+              className="overlay-gal"
+              onClick={() => this.setImage(bouquetMediumDisplay)}
+            />
             <h2>{bouquetMediumDisplay.product_name}</h2>
-            <div className="content-details">
-              <p>{bouquetMediumDisplay.product_description}</p>
-            </div>
           </div>
         ));
     const bouquetLarge =
@@ -105,11 +105,12 @@ class GalBouquet extends Component {
               src={bouquetLargeDisplay.product_image}
               alt="bouquetLargeDisplay"
             />
-            <div className="overlay-gal" />
+
+            <div
+              className="overlay-gal"
+              onClick={() => this.setImage(bouquetLargeDisplay)}
+            />
             <h2> {bouquetLargeDisplay.product_name}</h2>
-            <div className="content-details">
-              <p>{bouquetLargeDisplay.product_description}</p>
-            </div>
           </div>
         ));
     const bouquetXLarge =
@@ -126,11 +127,12 @@ class GalBouquet extends Component {
               src={bouquetXLargeDisplay.product_image}
               alt="bouquetXLargeDisplay"
             />
-            <div className="overlay-gal" />
+
+            <div
+              className="overlay-gal"
+              onClick={() => this.setImage(bouquetXLargeDisplay)}
+            />
             <h2>{bouquetXLargeDisplay.product_name}</h2>
-            <div className="content-details">
-              <p>{bouquetXLargeDisplay.product_description}</p>
-            </div>
           </div>
         ));
 

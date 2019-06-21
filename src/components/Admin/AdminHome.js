@@ -7,14 +7,16 @@ import AdminItemCreateModal from "./AdminItemCreate";
 import "./Admin.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import AdminItemEdit from "./AdminItemEdit";
 class AdminHome extends Component {
   previousLocation = this.props.location;
   constructor(props) {
     super(props);
     this.state = {
       modalShowCreate: false,
-      key: "items"
+      key: "items",
+      itemClicked: [],
+      modalShowEdit: false
     };
   }
 
@@ -28,7 +30,12 @@ class AdminHome extends Component {
     this.props.getInqs();
     this.props.getWeddings();
   }
-
+  clickedItem = item => {
+    this.setState({
+      modalShowEdit: true,
+      itemClicked: item
+    });
+  };
   redirect = () => {
     window.location.pathname = "/admin/home";
   };
@@ -36,6 +43,7 @@ class AdminHome extends Component {
   render() {
     console.log(this.props);
     let modalCloseCreate = () => this.setState({ modalShowCreate: false });
+    let modalCloseEdit = () => this.setState({ modalShowEdit: false });
 
     let { user } = this.props;
 
@@ -53,7 +61,14 @@ class AdminHome extends Component {
             <td>{item.product_category}</td>
             <td>{item.product_price}</td>
             <td>
-              <Link to={`/admin/item/${item.id}`}>Edit</Link>
+              {/* <Link to={`/admin/item/${item.id}`}>Edit</Link> */}
+              <button
+                onClick={() => {
+                  this.clickedItem(item);
+                }}
+              >
+                edit
+              </button>
             </td>
           </tr>
         </tbody>
@@ -165,6 +180,12 @@ class AdminHome extends Component {
                   </Table>
                 </Tab>
               </Tabs>
+
+              <AdminItemEdit
+                show={this.state.modalShowEdit}
+                onHide={modalCloseEdit}
+                selecteditem={this.state.itemClicked}
+              />
             </div>
           </div>
         ) : (
