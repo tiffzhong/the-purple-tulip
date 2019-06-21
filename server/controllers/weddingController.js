@@ -17,6 +17,16 @@ module.exports = {
       })
       .catch(error => console.log("error in get products", error));
   },
+  deleteWedding: (req, res) => {
+    const db = req.app.get("db");
+    console.log(req.params.id);
+    let { id } = req.params;
+    db.delete_wedding(id)
+      .then(() => {
+        res.status(200).send();
+      })
+      .catch(error => console.log("error in delete wedding", error));
+  },
   createWedding: (req, res) => {
     const db = req.app.get("db");
     console.log(req.body);

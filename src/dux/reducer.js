@@ -20,6 +20,8 @@ const GET_INQURIES = "GET_INQURIES";
 const GET_INQUIRY = "GET_INQUIRY";
 const GET_WEDDINGS = "GET_WEDDINGS";
 const GET_WEDDING = "GET_WEDDING";
+const DELETE_WED = "DELETE_WED";
+const DELETE_INQ = "DELETE_INQ";
 
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -35,6 +37,7 @@ export default function reducer(state = INITIAL_STATE, action) {
       return { ...state };
     case `${DELETE_ITEM}_FULFILLED`:
       return { ...state };
+
     case `${GET_INQURIES}_FULFILLED`:
       return { ...state, inqs: action.payload };
     case GET_INQUIRY:
@@ -43,6 +46,10 @@ export default function reducer(state = INITIAL_STATE, action) {
       return { ...state, weddings: action.payload };
     case GET_WEDDING:
       return { ...state, wedding: action.payload };
+    case `${DELETE_WED}_FULFILLED`:
+      return { ...state };
+    case `${DELETE_INQ}_FULFILLED`:
+      return { ...state };
     default:
       return { ...state };
   }
@@ -168,5 +175,24 @@ export function getWedding(id) {
   return {
     type: GET_WEDDING,
     payload: id
+  };
+}
+
+export function deleteInq(id) {
+  return {
+    type: DELETE_INQ,
+    payload: axios
+      .delete(`/admin/inquiry/${id}`)
+      .then(() => console.log("deleteInq worked"))
+      .catch(err => console.log("error in deleteInq", err))
+  };
+}
+export function deleteWed(id) {
+  return {
+    type: DELETE_WED,
+    payload: axios
+      .delete(`/admin/wedding/${id}`)
+      .then(() => console.log("deleteWedding worked"))
+      .catch(err => console.log("error in deleteWedding", err))
   };
 }

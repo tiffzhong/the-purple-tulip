@@ -1,0 +1,1 @@
+delete from inquiries where id = $1;

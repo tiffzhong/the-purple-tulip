@@ -56,12 +56,13 @@ app.post("/admin/logout", adminController.logout);
 //inquiry
 app.get("/admin/inquiries", adminController.getInquiries);
 app.get("/admin/inquiry/:id", nmController.getInquiry);
+app.delete("/admin/inquiry/:id", nmController.deleteInquiry);
 
 //wedding
 app.get("/admin/weddings", weddingController.getWeddings);
 app.get("/admin/wedding/:id", weddingController.getWedding);
 app.post("/api/wedding", weddingController.createWedding);
-
+app.delete("/admin/wedding/:id", weddingController.deleteWedding);
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);

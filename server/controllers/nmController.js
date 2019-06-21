@@ -98,5 +98,15 @@ module.exports = {
         res.status(200).send(inquiry[0]);
       })
       .catch(error => console.log(error));
+  },
+  deleteInquiry: (req, res) => {
+    const db = req.app.get("db");
+    console.log(req.params.id);
+    let { id } = req.params;
+    db.delete_inq(id)
+      .then(() => {
+        res.status(200).send();
+      })
+      .catch(error => console.log("error in delete inq", error));
   }
 };

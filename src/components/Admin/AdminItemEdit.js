@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import { setUser, updateItem, getItem, deleteItem } from "../../dux/reducer";
+import { setUser, updateItem, deleteItem } from "../../dux/reducer";
 import "./Admin.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -52,30 +52,9 @@ class EditAndDeleteModal extends Component {
     window.location.reload();
     // window.location.pathname = "/admin/home";
   };
-  // componentDidMount() {
-  //   if (this.props.match.params.id) {
-  //     axios
-  //       .get(`/api/product/${this.props.match.params.id}`)
-  //       .then(res => {
-  //         console.log(res, "res");
-  //         return this.props.getItem(res.data);
-  //       })
-  //       .then(() => {
-  //         this.setState({
-  //           product_name: this.props.item.product_name,
-  //           product_size: this.props.item.product_size,
-  //           product_category: this.props.item.product_category,
-  //           product_price: this.props.item.product_price,
-  //           product_description: this.props.item.product_description,
-  //           product_image: this.props.item.product_image
-  //         });
-  //       })
-  //       .catch(error => console.log(error));
-  //   }
-  // }
+
   render() {
     console.log(this.props, "editmodal");
-    const { updateItem, selecteditem } = this.props;
 
     return (
       <>
@@ -168,24 +147,10 @@ class EditAndDeleteModal extends Component {
               </form>
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={this.props.onHide}>Close</Button>
+              {/* <Button onClick={this.props.onHide}>Close</Button> */}
               <Link to="/admin/home">
                 <Button onClick={() => this.saveClicked()}>Save</Button>
-                {/* <Button
-                  onClick={() =>
-                    updateItem(
-                      this.props.selecteditem.id,
-                      this.state.product_name,
-                      this.state.product_size,
-                      this.state.product_category,
-                      this.state.product_price,
-                      this.state.product_description,
-                      this.state.product_image
-                    )
-                  }
-                >
-                  Save
-                </Button> */}
+
                 <Button
                   variant="primary"
                   onClick={() => this.clicked(this.props.selecteditem.id)}
@@ -211,5 +176,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { setUser, updateItem, getItem, deleteItem }
+  { setUser, updateItem, deleteItem }
 )(EditAndDeleteModal);

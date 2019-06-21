@@ -8,6 +8,8 @@ import "./Admin.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AdminItemEdit from "./AdminItemEdit";
+import AdminViewInq from "./AdminViewInq";
+import AdminViewWed from "./AdminViewWed";
 class AdminHome extends Component {
   previousLocation = this.props.location;
   constructor(props) {
@@ -16,7 +18,11 @@ class AdminHome extends Component {
       modalShowCreate: false,
       key: "items",
       itemClicked: [],
-      modalShowEdit: false
+      modalShowEdit: false,
+      modalShowInq: false,
+      inqClicked: [],
+      wedClicked: [],
+      modalShowWed: false
     };
   }
 
@@ -36,6 +42,19 @@ class AdminHome extends Component {
       itemClicked: item
     });
   };
+
+  clickedInq = inq => {
+    this.setState({
+      modalShowInq: true,
+      inqClicked: inq
+    });
+  };
+  clickedWed = wed => {
+    this.setState({
+      wedClicked: wed,
+      modalShowWed: true
+    });
+  };
   redirect = () => {
     window.location.pathname = "/admin/home";
   };
@@ -44,6 +63,8 @@ class AdminHome extends Component {
     console.log(this.props);
     let modalCloseCreate = () => this.setState({ modalShowCreate: false });
     let modalCloseEdit = () => this.setState({ modalShowEdit: false });
+    let modalCloseInq = () => this.setState({ modalShowInq: false });
+    let modalCloseWed = () => this.setState({ modalShowWed: false });
 
     let { user } = this.props;
 
@@ -61,7 +82,6 @@ class AdminHome extends Component {
             <td>{item.product_category}</td>
             <td>{item.product_price}</td>
             <td>
-              {/* <Link to={`/admin/item/${item.id}`}>Edit</Link> */}
               <button
                 onClick={() => {
                   this.clickedItem(item);
@@ -84,7 +104,13 @@ class AdminHome extends Component {
             <td>{inq.fullname}</td>
             <td>{inq.email}</td>
             <td>
-              <Link to={`/admin/wedding/${inq.id}`}>View</Link>
+              <button
+                onClick={() => {
+                  this.clickedInq(inq);
+                }}
+              >
+                view
+              </button>
             </td>
           </tr>
         </tbody>
@@ -101,7 +127,7 @@ class AdminHome extends Component {
             <td>{wedding.weddingphone}</td>
             <td>{wedding.weddingdate}</td>
             <td>
-              <Link to={`/admin/wedding/${wedding.id}`}>View</Link>
+              <button onClick={() => this.clickedWed(wedding)}>view</button>
             </td>
           </tr>
         </tbody>
@@ -185,6 +211,16 @@ class AdminHome extends Component {
                 show={this.state.modalShowEdit}
                 onHide={modalCloseEdit}
                 selecteditem={this.state.itemClicked}
+              />
+              <AdminViewInq
+                show={this.state.modalShowInq}
+                onHide={modalCloseInq}
+                selectedinq={this.state.inqClicked}
+              />
+              <AdminViewWed
+                show={this.state.modalShowWed}
+                onHide={modalCloseWed}
+                selectedwed={this.state.wedClicked}
               />
             </div>
           </div>
