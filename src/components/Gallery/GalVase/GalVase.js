@@ -5,7 +5,7 @@ import NavBarGallery from "../../NavBars/NavBarGallery";
 import { connect } from "react-redux";
 import { getItems } from "../../../dux/reducer";
 import VaseModal from "./VaseModal";
-
+import { Breadcrumb } from "react-bootstrap";
 class GalVase extends Component {
   constructor(...args) {
     super(...args);
@@ -128,6 +128,15 @@ class GalVase extends Component {
     return (
       <>
         <NavBarGallery />
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <Link to="/">home</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link to="/gallery">gallery</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>vases</Breadcrumb.Item>
+        </Breadcrumb>{" "}
         <div className="vase-gallery">
           <h1>vases</h1>
           <div className="link-header">

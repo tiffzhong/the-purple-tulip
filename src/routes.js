@@ -27,7 +27,9 @@ export default (
     <Route exact path="/" component={LandingPage} />
     <Route path="/about" component={About} />
     <Route exact path="/gallery" component={Gallery} />
-    <Route exact path="/gallery/occasions" component={GalOccasion} />
+    <Route path="/gallery/occasions" component={GalOccasion} />
+    <Route exact path="/gallery/occasions#wedding" component={GalOccasion} />
+
     <Route exact path="/gallery/bouquets" component={GalBouquet} />
 
     <Route exact path="/gallery/vases" component={GalVase} />

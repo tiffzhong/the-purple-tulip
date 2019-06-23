@@ -5,7 +5,7 @@ import NavBarGallery from "../../NavBars/NavBarGallery";
 import { connect } from "react-redux";
 import { getItems } from "../../../dux/reducer";
 import OccasionModal from "./OccasionModal";
-
+import { Breadcrumb } from "react-bootstrap";
 class GalOccasion extends Component {
   constructor(...args) {
     super(...args);
@@ -92,6 +92,15 @@ class GalOccasion extends Component {
     return (
       <>
         <NavBarGallery />
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <Link to="/">home</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link to="/gallery">gallery</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>special occasions</Breadcrumb.Item>
+        </Breadcrumb>
         <div className="occ-gallery">
           <h1>special occasions</h1>
           <div className="link-header">
