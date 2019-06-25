@@ -7,7 +7,8 @@ class NavBarGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggle: false
+      toggle: false,
+      galleryToggle: false
     };
   }
   toggle = () => {
@@ -18,6 +19,11 @@ class NavBarGallery extends Component {
     });
   };
 
+  galleryToggle = event => {
+    this.setState({
+      galleryToggle: !this.state.galleryToggle
+    });
+  };
   render() {
     return (
       <div className="navbar2-container">
@@ -36,9 +42,25 @@ class NavBarGallery extends Component {
           <Link to="/about">
             <li>about</li>
           </Link>
-          <Link to="/gallery">
-            <li className="handle">gallery</li>
-          </Link>
+          <div className="dropdown">
+            <div className="link-display">
+              <Link to="/gallery">
+                <li className="handle">gallery</li>
+              </Link>
+              <i onClick={this.galleryToggle} class="fas fa-caret-down" />
+            </div>
+            <div
+              className={
+                this.state.galleryToggle
+                  ? "nav-click-content"
+                  : "nav-click-hide"
+              }
+            >
+              <li>bouquets</li>
+              <li>vases</li>
+              <li>special events</li>
+            </div>
+          </div>
           <Link to="/services">
             <li>services</li>
           </Link>

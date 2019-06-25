@@ -158,23 +158,23 @@ class GalVase extends Component {
           </div>
           <div className="vase-photo-container">
             <section id="xsmall">
-              <h2>xsmall</h2>
+              <h1>xsmall</h1>
               <div className="photo-container">{vasexsmall}</div>
             </section>
             <section id="small">
-              <h2>small</h2>
+              <h1>small</h1>
               <div className="photo-container">{vasesmall}</div>
             </section>
             <section id="medium">
-              <h2>medium</h2>
+              <h1>medium</h1>
               <div className="photo-container">{vaseMedium}</div>
             </section>
             <section id="large">
-              <h2>large</h2>
+              <h1>large</h1>
               <div className="photo-container">{vaseLarge}</div>
             </section>
             <section id="xlarge">
-              <h2>xlarge</h2>
+              <h1>xlarge</h1>
               <div className="photo-container">{vaseXLarge}</div>
             </section>
 

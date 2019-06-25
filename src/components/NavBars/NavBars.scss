@@ -29,16 +29,7 @@
     display: flex;
     padding: 5px 20px;
   }
-  .handle {
-    color: #7651d9;
-    font-weight: 500;
-    text-transform: uppercase;
-    // text-decoration: underline;
-    // border-top: 3px solid #98beab;
-    border-bottom: 3px solid #98beab;
-    // background-color: #98beab;
-    padding: 5px 10px;
-  }
+
   hr {
     width: 18vw;
     border: 0;
@@ -57,5 +48,31 @@
 
   button {
     display: none;
+  }
+
+  .dropdown {
+    transition: all 1s;
+    transform: translate(0, 0);
+    border-bottom: 1px solid #dce0e6;
+    .link-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 2rem;
+        cursor: pointer;
+      }
+      .handle {
+        color: #7651d9;
+        text-transform: uppercase;
+
+        border-bottom: 3px solid #98beab;
+        padding: 5px 10px;
+      }
+
+      .nav-click-hide {
+        display: none;
+      }
+    }
   }
 }

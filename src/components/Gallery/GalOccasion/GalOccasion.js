@@ -119,19 +119,19 @@ class GalOccasion extends Component {
           </div>
           <div className="occ-photo-container">
             <section id="wedding">
-              <h2>wedding</h2>
+              <h1>wedding</h1>
               <div className="photo-container">{wedding}</div>
             </section>
             <section id="centerpiece">
-              <h2>centerpiece</h2>
+              <h1>centerpiece</h1>
               <div className="photo-container">{centerpiece}</div>
             </section>
             <section id="prom">
-              <h2>prom</h2>
+              <h1>prom</h1>
               <div className="photo-container">{prom}</div>
             </section>
             <section id="other">
-              <h2>other</h2>
+              <h1>other</h1>
               <div className="photo-container">{other}</div>
             </section>
 
