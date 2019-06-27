@@ -8,7 +8,8 @@ class NavBarGallery extends Component {
     super(props);
     this.state = {
       toggle: false,
-      galleryToggle: false
+      galleryToggle: false,
+      rotate: false
     };
   }
   toggle = () => {
@@ -19,10 +20,19 @@ class NavBarGallery extends Component {
     });
   };
 
-  galleryToggle = event => {
+  galleryToggler = () => {
     this.setState({
       galleryToggle: !this.state.galleryToggle
     });
+  };
+  rotateToggler = () => {
+    this.setState({
+      rotate: !this.state.rotate
+    });
+  };
+  combine = () => {
+    this.galleryToggler();
+    this.rotateToggler();
   };
   render() {
     return (
@@ -47,7 +57,14 @@ class NavBarGallery extends Component {
               <Link to="/gallery">
                 <li className="handle">gallery</li>
               </Link>
-              <i onClick={this.galleryToggle} class="fas fa-caret-down" />
+              <i
+                onClick={this.combine}
+                class={
+                  this.state.rotate
+                    ? "fas fa-caret-down fa-flip-vertical"
+                    : "fas fa-caret-down"
+                }
+              />
             </div>
             <div
               className={
@@ -56,9 +73,9 @@ class NavBarGallery extends Component {
                   : "nav-click-hide"
               }
             >
-              <li>bouquets</li>
-              <li>vases</li>
-              <li>special events</li>
+              <Link to="/gallery/bouquets">bouquets</Link>
+              <Link to="/gallery/vases">vases</Link>
+              <Link to="/gallery/occasions">special events</Link>
             </div>
           </div>
           <Link to="/services">
