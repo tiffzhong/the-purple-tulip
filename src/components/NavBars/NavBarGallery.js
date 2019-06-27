@@ -9,7 +9,9 @@ class NavBarGallery extends Component {
     this.state = {
       toggle: false,
       galleryToggle: false,
-      rotate: false
+      rotate: false,
+      serviceToggle: false,
+      serviceRotate: false
     };
   }
   toggle = () => {
@@ -20,6 +22,11 @@ class NavBarGallery extends Component {
     });
   };
 
+  serviceToggler = () => {
+    this.setState({
+      serviceToggle: !this.state.serviceToggle
+    });
+  };
   galleryToggler = () => {
     this.setState({
       galleryToggle: !this.state.galleryToggle
@@ -30,9 +37,18 @@ class NavBarGallery extends Component {
       rotate: !this.state.rotate
     });
   };
+  serviceRotateToggler = () => {
+    this.setState({
+      serviceRotate: !this.state.serviceRotate
+    });
+  };
   combine = () => {
     this.galleryToggler();
     this.rotateToggler();
+  };
+  serviceCombine = () => {
+    this.serviceToggler();
+    this.serviceRotateToggler();
   };
   render() {
     return (
@@ -46,7 +62,7 @@ class NavBarGallery extends Component {
 
         <ul className={this.state.toggle ? "show" : "hide"}>
           <hr />
-          <Link to="/">
+          <Link to="/" className="home-style">
             <li>home</li>
           </Link>
           <Link to="/about">
@@ -78,9 +94,31 @@ class NavBarGallery extends Component {
               <Link to="/gallery/occasions">special events</Link>
             </div>
           </div>
-          <Link to="/services">
-            <li>services</li>
-          </Link>
+          <div className="dropdown">
+            <div className="link-display">
+              <Link to="/services">
+                <li>services</li>
+              </Link>
+              <i
+                onClick={this.serviceCombine}
+                class={
+                  this.state.serviceRotate
+                    ? "fas fa-caret-down fa-flip-vertical"
+                    : "fas fa-caret-down"
+                }
+              />
+            </div>
+            <div
+              className={
+                this.state.serviceToggle
+                  ? "nav-click-content-service"
+                  : "nav-click-hide"
+              }
+            >
+              <Link to="/services/deliveryinfo">delivery information</Link>
+              <Link to="/services/wedding">wedding consultation</Link>
+            </div>
+          </div>
 
           <Link to="/contact">
             <li>contact</li>

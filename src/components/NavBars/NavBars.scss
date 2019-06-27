@@ -13,21 +13,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .handle {
+    color: #7651d9;
+    text-transform: uppercase;
 
+    border-bottom: 3px solid #98beab;
+    padding: 5px 10px;
+  }
   ul {
     margin-top: 20px;
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   a {
     text-decoration: none;
+    margin-left: 3rem;
   }
+
   li {
     font-size: 25px;
-    margin: 0 10px;
+    margin-right: 0.5rem;
     color: black;
     display: flex;
-    padding: 5px 20px;
+    padding: 5px;
   }
 
   hr {
@@ -51,19 +61,16 @@
   }
 
   .dropdown {
-    // transition: all 1s;
-    // transform: translate(0, 0);
-    // border-bottom: 1px solid #dce0e6;
     .link-display {
       display: flex;
       justify-content: center;
       align-items: center;
 
       i {
-        font-size: 2rem;
+        font-size: 1.6rem;
         cursor: pointer;
-        &::after {
-          rotate: 90deg;
+        &:hover {
+          color: #7651d9;
         }
       }
       .handle {
@@ -78,12 +85,36 @@
       z-index: 2;
       display: inline-block;
       position: absolute;
-
+      left: 1rem;
       width: 11rem;
       margin: 0.8rem 0;
       box-shadow: 0 10px 6px -6px #777;
       a {
-        padding: 0.8rem;
+        padding: 1rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        color: black;
+        background-color: #f7f7f7;
+        &:hover {
+          color: black;
+          background-color: #ae85aa;
+          cursor: pointer;
+          // color: #7651d9;
+          border-bottom: 2px solid #98beab;
+        }
+      }
+    }
+    .nav-click-content-service {
+      z-index: 2;
+      display: inline-block;
+      position: absolute;
+      left: 1rem;
+      width: 15rem;
+      margin: 0.8rem 0;
+      box-shadow: 0 10px 6px -6px #777;
+      a {
+        padding: 1rem;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -101,5 +132,8 @@
     .nav-click-hide {
       display: none;
     }
+  }
+  .home-style {
+    margin-left: 0.5rem;
   }
 }
